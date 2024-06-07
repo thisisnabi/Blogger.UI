@@ -2,7 +2,46 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+
+      colors: {
+        'gray1': '#717B8E',
+        'caption-gray': '#A8ADB8',
+        'primary': '#6F49E8'
+      },
+      fontSize: {
+        1: '0.25rem',
+        1.5: '0.375rem',
+        2: '0.5rem',
+        2.5: '0.625rem',
+        2.75: '0.6875rem',
+        3: '0.75rem',
+        3.25: '0.8125rem',
+        3.5: '0.875rem',
+        4: '1rem',
+        4.5: '1.125rem',
+        5: '1.25rem',
+        5.5: '1.375rem',
+      },
+      borderRadius: {
+        1: '0.25rem',
+        1.5: '0.375rem',
+        2: '0.5rem',
+        2.5: '0.625rem',
+        3: '0.75rem',
+        3.5: '0.875rem',
+        4: '1rem',
+        4.5: '1.125rem',
+        5: '1.25rem',
+        5.5: '1.375rem',
+      },
+      borderWidth: {
+        1: '1px',
+        3: '3px',
+        5: '5px',
+      },
+
+    },
   },
   plugins: [],
 }

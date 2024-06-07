@@ -3,6 +3,7 @@ module.exports = {
   env: {browser: true, es2020: true},
   extends: [
     "plugin:@typescript-eslint/recommended",
+    'plugin:prettier/recommended',
     'prettier',
     'eslint:recommended',
     'plugin:react/recommended',
@@ -13,6 +14,7 @@ module.exports = {
   settings: {react: {version: '18.2'}},
   plugins: ["@typescript-eslint", "simple-import-sort", "import"],
   rules: {
+    "@typescript-eslint/no-explicit-any": "off",
     "react/react-in-jsx-scope": "off",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
