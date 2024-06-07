@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "lint:fix": "eslint --fix src"
+    "lint:fix": "eslint --fix src",
+    "gen:api": "swagger-typescript-api -p https://apis.thisisnabi.dev/swagger/v1/swagger.json --axios -o  -n src/services/Api.ts"
   },
   "dependencies": {
     "@types/jest": "^29.5.12",
@@ -23,7 +24,8 @@
     "react-icomoon": "^2.5.7",
     "react-loader-spinner": "^6.1.6",
     "react-paginate": "^8.2.0",
-    "react-router-dom": "^6.23.0"
+    "react-router-dom": "^6.23.0",
+    "swagger-typescript-api": "^13.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

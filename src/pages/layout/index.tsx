@@ -4,9 +4,12 @@ import React from 'react'
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className={'overflow-x-hidden min-h-screen bg-[#f5f5f7]'}>
-      <div className={'mx-auto w-full max-w-[1260px] mt-8 flex item-start'}>
+      <div
+        className={'mx-auto w-full max-w-[1260px] mt-8 flex item-start gap-x-6'}
+      >
         <LeftSidebar />
-        {children}
+        <div className={'w-[552px]'}>{children}</div>
+        {/*-- right sidebar*/}
       </div>
     </div>
   )
