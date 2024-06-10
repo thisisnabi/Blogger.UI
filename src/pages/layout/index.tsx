@@ -1,4 +1,5 @@
 import LeftSidebar from 'pages/layout/components/LeftSidebar'
+import SearchInput from 'pages/layout/components/Search'
 import React from 'react'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -8,7 +9,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         className={'mx-auto w-full max-w-[1260px] mt-8 flex item-start gap-x-6'}
       >
         <LeftSidebar />
-        <div className={'w-[552px]'}>{children}</div>
+        <div className={'w-[552px] space-y-2'}>
+          <SearchInput />
+          {children}
+        </div>
         {/*-- right sidebar*/}
       </div>
     </div>
