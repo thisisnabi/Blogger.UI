@@ -1,16 +1,16 @@
 module.exports = {
-  root: true,
-  env: {browser: true, es2020: true},
+  // root: true,
+  // env: {browser: true, es2020: true},
   extends: [
     "plugin:@typescript-eslint/recommended",
     'plugin:prettier/recommended',
     'prettier',
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended',
+    // 'eslint:recommended',
+    // 'plugin:react/recommended',
+    // 'plugin:react/jsx-runtime',
+    // 'plugin:react-hooks/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs', ''],
+  ignorePatterns: ['dist', '.eslintrc.cjs'],
   // settings: {react: {version: '18.2'}},
   plugins: ["@typescript-eslint", "simple-import-sort", "import"],
   rules: {

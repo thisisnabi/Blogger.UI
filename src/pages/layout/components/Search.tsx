@@ -20,7 +20,6 @@ const SearchInput = (props: SearchInputProps) => {
       </span>
       <input
         autoComplete="off"
-        tabIndex={-1}
         className={'w-full h-full focus:outline-none placeholder:text-[16px]'}
         placeholder={'search ...'}
       />
