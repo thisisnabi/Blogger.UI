@@ -12,10 +12,13 @@
     "gen:api": "swagger-typescript-api -p https://apis.thisisnabi.dev/swagger/v1/swagger.json --axios -o  -n src/services/Api.ts"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.3",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.14.2",
     "autoprefixer": "^10.4.19",
     "axios": "^1.6.8",
+    "classnames": "^2.5.1",
+    "heroicons": "^2.1.3",
     "icomoon-react": "^3.0.0",
     "postcss": "^8.4.38",
     "postcss-cli": "^11.0.0",
