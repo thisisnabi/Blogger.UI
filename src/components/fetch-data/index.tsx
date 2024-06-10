@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from 'react'
 
 type Props<T> = {
   children: (data: T | null, error: string | null) => React.ReactNode
-  req: () => Promise<T>
+  req: (abortSignal?: AbortSignal) => Promise<T>
   dependencies: any[]
 }
 
@@ -17,7 +17,7 @@ function FetchData<T = any>(props: Props<T>) {
 
   const fetchData = () => {
     setIsLoading(true)
-    return req()
+    return req(abortController?.signal)
       .then((res) => {
         setResponse(res)
         setIsLoading(false)
@@ -39,6 +39,8 @@ function FetchData<T = any>(props: Props<T>) {
       if (typeof abortController.abort === 'function') abortController.abort()
     }
   }, dependencies)
+
+  if (error) return <div>error</div>
 
   if (isLoading) return <div>loading</div>
 

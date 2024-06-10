@@ -1,4 +1,4 @@
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import { SearchIcon } from '@heroicons/react/outline'
 import cx from 'classnames'
 import React, { HTMLProps } from 'react'
 
@@ -16,7 +16,7 @@ const SearchInput = (props: SearchInputProps) => {
       {...rest}
     >
       <span>
-        <MagnifyingGlassIcon className={'w-6 text-gray1'} />
+        <SearchIcon className={'w-6 text-gray1'} />
       </span>
       <input
         autoComplete="off"

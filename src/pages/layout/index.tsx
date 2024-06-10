@@ -1,4 +1,5 @@
 import LeftSidebar from 'pages/layout/components/LeftSidebar'
+import RightSidebar from 'pages/layout/components/RightSidebar'
 import SearchInput from 'pages/layout/components/Search'
 import React from 'react'
 
@@ -14,6 +15,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           {children}
         </div>
         {/*-- right sidebar*/}
+        <RightSidebar />
       </div>
     </div>
   )

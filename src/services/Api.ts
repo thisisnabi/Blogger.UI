@@ -1,4 +1,3 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
 /*
@@ -148,7 +147,7 @@ export interface UpdateDraftRequest {
   tags?: string[] | null
 }
 
-import type {AxiosInstance, AxiosRequestConfig, AxiosResponse, HeadersDefaults, ResponseType} from 'axios'
+import type { AxiosInstance, AxiosRequestConfig, AxiosResponse, HeadersDefaults, ResponseType } from 'axios'
 import axios from 'axios'
 
 export type QueryParamsType = Record<string | number, any>
@@ -192,8 +191,8 @@ export class HttpClient<SecurityDataType = unknown> {
   private secure?: boolean
   private format?: ResponseType
 
-  constructor({securityWorker, secure, format, ...axiosConfig}: ApiConfig<SecurityDataType> = {}) {
-    this.instance = axios.create({...axiosConfig, baseURL: axiosConfig.baseURL || ''})
+  constructor({ securityWorker, secure, format, ...axiosConfig }: ApiConfig<SecurityDataType> = {}) {
+    this.instance = axios.create({ ...axiosConfig, baseURL: axiosConfig.baseURL || '' })
     this.secure = secure
     this.format = format
     this.securityWorker = securityWorker
@@ -201,44 +200,6 @@ export class HttpClient<SecurityDataType = unknown> {
 
   public setSecurityData = (data: SecurityDataType | null) => {
     this.securityData = data
-  }
-
-  public request = async <T = any, _E = any>({
-                                               secure,
-                                               path,
-                                               type,
-                                               query,
-                                               format,
-                                               body,
-                                               ...params
-                                             }: FullRequestParams): Promise<AxiosResponse<T>> => {
-    const secureParams =
-      ((typeof secure === 'boolean' ? secure : this.secure) &&
-        this.securityWorker &&
-        (await this.securityWorker(this.securityData))) ||
-      {}
-    const requestParams = this.mergeRequestParams(params, secureParams)
-    const responseFormat = format || this.format || undefined
-
-    if (type === ContentType.FormData && body && body !== null && typeof body === 'object') {
-      body = this.createFormData(body as Record<string, unknown>)
-    }
-
-    if (type === ContentType.Text && body && body !== null && typeof body !== 'string') {
-      body = JSON.stringify(body)
-    }
-
-    return this.instance.request({
-      ...requestParams,
-      headers: {
-        ...(requestParams.headers || {}),
-        ...(type && type !== ContentType.FormData ? {'Content-Type': type} : {}),
-      },
-      params: query,
-      responseType: responseFormat,
-      data: body,
-      url: path,
-    })
   }
 
   protected mergeRequestParams(params1: AxiosRequestConfig, params2?: AxiosRequestConfig): AxiosRequestConfig {
@@ -276,6 +237,44 @@ export class HttpClient<SecurityDataType = unknown> {
 
       return formData
     }, new FormData())
+  }
+
+  public request = async <T = any, _E = any>({
+    secure,
+    path,
+    type,
+    query,
+    format,
+    body,
+    ...params
+  }: FullRequestParams): Promise<AxiosResponse<T>> => {
+    const secureParams =
+      ((typeof secure === 'boolean' ? secure : this.secure) &&
+        this.securityWorker &&
+        (await this.securityWorker(this.securityData))) ||
+      {}
+    const requestParams = this.mergeRequestParams(params, secureParams)
+    const responseFormat = format || this.format || undefined
+
+    if (type === ContentType.FormData && body && body !== null && typeof body === 'object') {
+      body = this.createFormData(body as Record<string, unknown>)
+    }
+
+    if (type === ContentType.Text && body && body !== null && typeof body !== 'string') {
+      body = JSON.stringify(body)
+    }
+
+    return this.instance.request({
+      ...requestParams,
+      headers: {
+        ...(requestParams.headers || {}),
+        ...(type && type !== ContentType.FormData ? { 'Content-Type': type } : {}),
+      },
+      params: query,
+      responseType: responseFormat,
+      data: body,
+      url: path,
+    })
   }
 }
 

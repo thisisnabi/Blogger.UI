@@ -4,9 +4,9 @@ module.exports = {
   extends: [
     "plugin:@typescript-eslint/recommended",
     'plugin:prettier/recommended',
-    'prettier',
+    // 'prettier',
     // 'eslint:recommended',
-    // 'plugin:react/recommended',
+    'plugin:react/recommended',
     // 'plugin:react/jsx-runtime',
     // 'plugin:react-hooks/recommended',
   ],
