@@ -1,17 +1,18 @@
 import FetchData from 'components/fetch-data'
 import Icon from 'font-icon/Icon'
 import { parseDate } from 'helpers/helpers'
-import API from 'services/config'
+
+import API from '../../services/Api'
 
 const Home = () => {
   const fetchArticles = () => {
     return API.articles
       .articlesList({ Page: 1, Size: 20 })
-      .then((res) => res?.data)
+      .then((res) => res.data)
   }
 
   return (
-    <FetchData req={fetchArticles} dependencies={[]}>
+    <FetchData request={fetchArticles} deps={[]}>
       {(data) => {
         return (
           <div>
