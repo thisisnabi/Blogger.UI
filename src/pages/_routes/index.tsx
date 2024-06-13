@@ -3,6 +3,7 @@ import { RouteProps } from 'react-router/dist/lib/components'
 import { Route, Routes } from 'react-router-dom'
 
 const Home = React.lazy(() => import('pages/home'))
+const PageNotFound = React.lazy(() => import('pages/404'))
 
 const routes: RouteProps[] = [{ path: '/', element: <Home /> }]
 
@@ -13,6 +14,7 @@ const AppRoutes = () => {
         {routes.map((node, index) => (
           <Route key={`route-${index}`} {...node} />
         ))}
+        <Route path={'*'} element={<PageNotFound />} />
       </Routes>
     </React.Suspense>
   )
