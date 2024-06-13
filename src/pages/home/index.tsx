@@ -1,13 +1,13 @@
+import {CalendarIcon, ClockIcon, TagIcon} from "@heroicons/react/outline";
 import FetchData from 'components/fetch-data'
-import Icon from 'font-icon/Icon'
-import { parseDate } from 'helpers/helpers'
+import {parseDate} from 'helpers/helpers'
 
 import API from '../../services/Api'
 
 const Home = () => {
   const fetchArticles = () => {
     return API.articles
-      .articlesList({ Page: 1, Size: 20 })
+      .articlesList({Page: 1, Size: 20})
       .then((res) => res.data)
   }
 
@@ -31,16 +31,16 @@ const Home = () => {
                 </p>
                 <div className={'flex items-center gap-x-5 text-gray1'}>
                   <div className={'text-3 flex items-center'}>
-                    <Icon width={16} icon={'Calendar'} className={'mr-2'} />
+                    <CalendarIcon className={'mr-2 w-4'}/>
                     {parseDate(article?.publishedOnUtc || '')}
                   </div>
                   <div className={'text-3 flex items-center'}>
-                    <Icon width={16} icon={'Clock'} className={'mr-2'} />
+                    <ClockIcon className={'mr-2 w-4'}/>
                     {article.readOnMinutes}
                     min Read
                   </div>
                   <div className={'text-3 flex items-center'}>
-                    <Icon width={16} icon={'Tag'} className={'mr-2'} />
+                    <TagIcon className={'mr-2 w-4'}/>
                     {article?.tags?.map((tag) => tag + '  ')}
                   </div>
                 </div>

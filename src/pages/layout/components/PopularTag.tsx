@@ -1,4 +1,4 @@
-import { TagIcon } from '@heroicons/react/outline'
+import {TagIcon} from '@heroicons/react/outline'
 import FetchData from 'components/fetch-data'
 import API from 'services/Api'
 
@@ -9,10 +9,11 @@ const PopularTag = () => {
     })
   }
 
+
   return (
     <div>
       <div className={'flex items-center gap-x-3'}>
-        <TagIcon className={'w-6 text-primary'} />
+        <TagIcon className={'w-6 text-primary'}/>
         <p className={'text-[18px] font-medium'}>Popular Tag</p>
       </div>
       <FetchData request={fetchTags} deps={[]}>

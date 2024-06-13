@@ -1,12 +1,23 @@
 import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import tailwindcss from 'tailwindcss'
+import {defineConfig} from 'vite'
+import svgrPlugin from 'vite-plugin-svgr'
+import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), tsconfigPaths(), svgrPlugin()],
+
   server: {
-    port: 3000, // or any port you prefer
+    port: 3000,
+    open: true,
   },
   build: {
     outDir: 'build',
   },
+  css: {
+    postcss: {
+      plugins: [tailwindcss],
+    },
+  },
+  // assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.svg']
 })

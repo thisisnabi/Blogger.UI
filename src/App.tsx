@@ -1,14 +1,15 @@
 import AppRoutes from 'pages/_routes'
-import ErrorBoundary from 'pages/ErrorBoundary'
 import Layout from 'pages/layout'
-import { BrowserRouter } from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom'
+
+import ErrorBoundary from './pages/ErrorBoundary'
 
 function App() {
   return (
     <ErrorBoundary>
       <BrowserRouter basename={'/'}>
         <Layout>
-          <AppRoutes />
+          <AppRoutes/>
         </Layout>
       </BrowserRouter>
 

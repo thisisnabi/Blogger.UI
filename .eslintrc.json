@@ -1,9 +1,13 @@
 {
-  "plugins": ["@typescript-eslint", "simple-import-sort", "import"],
+  "plugins": [
+    "@typescript-eslint",
+    "simple-import-sort",
+    "import"
+  ],
   "extends": [
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    "plugin:react/recommended"
+    //    "plugin:prettier/recommended"
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",
@@ -12,12 +16,12 @@
     "@ts-nocheck": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-explicit-any": "off",
     "import/first": "error",
     "import/newline-after-import": "error",
     "import/no-duplicates": "error",
     "padding-line-between-statements": [
       "error",
-
       {
         "blankLine": "always",
         "prev": "*",
