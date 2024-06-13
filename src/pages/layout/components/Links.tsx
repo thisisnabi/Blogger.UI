@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Youtube } from 'img/icons'
+import { Github, Linkedin, Twitter, Youtube } from 'assets/icons'
 
 const links = [
   {

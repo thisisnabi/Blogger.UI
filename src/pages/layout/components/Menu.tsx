@@ -5,6 +5,7 @@ import {
   InformationCircleIcon,
   TagIcon,
 } from '@heroicons/react/outline'
+import { ChevronRightIcon } from '@heroicons/react/solid'
 import { Link } from 'react-router-dom'
 
 const menuItems = [
@@ -39,9 +40,11 @@ const Menu = () => {
             <span className={'text-4'}>{node.label}</span>
             <span
               className={
-                "invisible group-hover/item:visible after:content-['_>'] text-black ml-auto font-semibold group-hover/item:text-white"
+                'invisible group-hover/item:visible text-black ml-auto font-semibold group-hover/item:text-white'
               }
-            />
+            >
+              <ChevronRightIcon className={'w-4'} />
+            </span>
           </Link>
         </li>
       ))}

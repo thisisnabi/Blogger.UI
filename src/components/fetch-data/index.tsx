@@ -1,3 +1,4 @@
+import loadingGif from 'assets/loading.gif'
 import axios from 'axios'
 import classNames from 'classnames'
 import React, { ReactNode, useEffect, useMemo, useState } from 'react'
@@ -86,6 +87,17 @@ function FetchData<T>(props: Props<T>) {
       </div>
     )
   }
+
+  if (loading)
+    return (
+      <div className={'w-full h-full flex items-center justify-center'}>
+        <img
+          src={loadingGif}
+          alt={'loading-spinner...'}
+          className={'w-[100px]'}
+        />
+      </div>
+    )
 
   return (
     <>

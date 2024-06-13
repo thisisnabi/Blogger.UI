@@ -1,5 +1,5 @@
 import { ClipboardListIcon } from '@heroicons/react/outline'
-import books from 'img/pictuer-books.png'
+import books from 'assets/img/pictuer-books.png'
 
 const MyBooks = () => {
   return (
