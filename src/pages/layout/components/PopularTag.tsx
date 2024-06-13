@@ -11,18 +11,19 @@ const PopularTag = () => {
 
 
   return (
-    <div>
+    <div className={'space-y-3'}>
       <div className={'flex items-center gap-x-3'}>
         <TagIcon className={'w-6 text-primary'}/>
         <p className={'text-[18px] font-medium'}>Popular Tag</p>
       </div>
       <FetchData request={fetchTags} deps={[]}>
         {(data) => (
-          <>
+          <div className={'flex items-center gap-2 flex-wrap'}>
             {data?.map((tag, index) => (
-              <div key={`popular-tag-${index}`}>{tag?.name}</div>
+              <div key={`popular-tag-${index}`}
+                   className={'w-fit whitespace-nowrap bg-[#FFFFFF] text-gray2 text-[13px] rounded-4 py-2 px-3'}>{tag?.name}</div>
             ))}
-          </>
+          </div>
         )}
       </FetchData>
     </div>
