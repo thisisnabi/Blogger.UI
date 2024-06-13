@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  variants: {
+    extend: {
+      textColor: ['hover'],
+    },
+  },
   theme: {
     extend: {
 
@@ -8,7 +13,7 @@ module.exports = {
         'gray1': '#717B8E',
         'gray2': "#3D475C",
         'caption-gray': '#A8ADB8',
-        'primary': '#6F49E8'
+        'primary': '#6F49E8',
       },
       fontSize: {
         1: '0.25rem',

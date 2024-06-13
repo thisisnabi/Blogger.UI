@@ -1,3 +1,5 @@
+import 'rc-pagination/assets/index.css'
+
 import AppRoutes from 'pages/_routes'
 import Layout from 'pages/layout'
 import { BrowserRouter } from 'react-router-dom'
