@@ -5,10 +5,10 @@ const LeftSidebar = () => {
   return (
     <div className={'w-[264px] space-y-4'}>
       <div className={'bg-white space-y-6 p-6'}>
-        <Profile/>
+        <Profile />
         {/*<Menu />*/}
       </div>
-      <MyBooks/>
+      <MyBooks />
     </div>
   )
 }

@@ -1,12 +1,22 @@
-import {ArchiveIcon, CheckIcon, HomeIcon, InformationCircleIcon, TagIcon} from "@heroicons/react/outline";
-import {Link} from 'react-router-dom'
+import {
+  ArchiveIcon,
+  CheckIcon,
+  HomeIcon,
+  InformationCircleIcon,
+  TagIcon,
+} from '@heroicons/react/outline'
+import { Link } from 'react-router-dom'
 
 const menuItems = [
-  {label: 'Home', icon: <HomeIcon className={'w-4'}/>, to: '/'},
-  {label: 'Tag', icon: <TagIcon className={'w-4'}/>, to: '/'},
-  {label: 'Archives', icon: <ArchiveIcon className={'w-4'}/>, to: '/'},
-  {label: 'About', icon: <InformationCircleIcon className={'w-4'}/>, to: '/'},
-  {label: 'subscribe', icon: <CheckIcon className={'w-4'}/>, to: '/'},
+  { label: 'Home', icon: <HomeIcon className={'w-4'} />, to: '/' },
+  { label: 'Tag', icon: <TagIcon className={'w-4'} />, to: '/' },
+  { label: 'Archives', icon: <ArchiveIcon className={'w-4'} />, to: '/' },
+  {
+    label: 'About',
+    icon: <InformationCircleIcon className={'w-4'} />,
+    to: '/',
+  },
+  { label: 'subscribe', icon: <CheckIcon className={'w-4'} />, to: '/' },
 ]
 
 const Menu = () => {
