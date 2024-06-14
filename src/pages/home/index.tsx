@@ -1,8 +1,7 @@
 import { CalendarIcon, ClockIcon, TagIcon } from '@heroicons/react/outline'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import FetchData from 'components/fetch-data'
+import Pagination from 'components/pagination'
 import { parseDate } from 'helpers/helpers'
-import Pagination from 'rc-pagination'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import API from 'services/Api'
@@ -58,27 +57,13 @@ const Home = () => {
                   </div>
                 </div>
               ))}
-              <Pagination
-                align={'center'}
-                className={'flex items-center border-0 !py-10'}
-                selectPrefixCls={'!bg-red-300'}
-                style={{ borderRadius: '10px', border: 'none' }}
-                current={filters?.Page}
-                total={400 || data?.length || 1}
-                pageSize={filters.Size}
-                onChange={(page) => setFilters({ ...filters, Page: page })}
-                prevIcon={() => (
-                  <div>
-                    <ChevronLeftIcon className={'w-6'} />
-                  </div>
-                )}
-                nextIcon={() => (
-                  <div>
-                    <ChevronRightIcon className={'w-6'} />
-                  </div>
-                )}
-              />
             </div>
+            <Pagination
+              onChange={(page) => setFilters({ ...filters, Page: page })}
+              pageSize={filters.Size}
+              total={data?.length || 1}
+              current={filters?.Page}
+            />
           </div>
         )
       }}
