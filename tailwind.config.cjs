@@ -12,6 +12,7 @@ module.exports = {
       colors: {
         'gray1': '#717B8E',
         'gray2': "#3D475C",
+        'gray3': "#161A22",
         'caption-gray': '#A8ADB8',
         'primary': '#6F49E8',
       },
@@ -30,6 +31,18 @@ module.exports = {
         5.5: '1.375rem',
       },
       borderRadius: {
+        1: '0.25rem',
+        1.5: '0.375rem',
+        2: '0.5rem',
+        2.5: '0.625rem',
+        3: '0.75rem',
+        3.5: '0.875rem',
+        4: '1rem',
+        4.5: '1.125rem',
+        5: '1.25rem',
+        5.5: '1.375rem',
+      },
+      lineHeight: {
         1: '0.25rem',
         1.5: '0.375rem',
         2: '0.5rem',
