@@ -11,9 +11,9 @@
   "extends": [
     "plugin:@typescript-eslint/recommended",
     "eslint:recommended",
-    "plugin:react/recommended",
-    //    "prettier",
-    "plugin:prettier/recommended"
+    "plugin:react/recommended"
+    //    "prettier"
+    //    "plugin:prettier/recommended"
   ],
   "rules": {
     "@typescript-eslint/no-unused-vars": "error",
@@ -44,7 +44,7 @@
       {
         "blankLine": "always",
         "prev": "*",
-        "next": "block-like"
+        "next": "block"
       },
       {
         "blankLine": "always",

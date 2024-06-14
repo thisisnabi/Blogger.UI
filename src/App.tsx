@@ -13,6 +13,7 @@ function App() {
     <ErrorBoundary>
       <BrowserRouter basename={'/'}>
         <ScrollToTop />
+
         <Layout>
           <AppRoutes />
         </Layout>
