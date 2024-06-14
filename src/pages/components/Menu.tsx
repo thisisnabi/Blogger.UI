@@ -39,7 +39,7 @@ const Menu = () => {
           key={`menu-item-{${index}}`}
           to={node.to}
           className={classNames(
-            'flex items-center group/item !h-[56px] hover:text-primary hover:text-white rounded-4 px-5 gap-x-3 w-full h-full text-gray1 group-hover/item:text-white',
+            'flex items-center group/item !h-[56px] hover:text-primary hover:text-white rounded-4 px-5 gap-x-3  w-full h-full text-gray1 group-hover/item:text-white',
             pathname === node.to ? 'bg-primary !text-white' : null
           )}
         >

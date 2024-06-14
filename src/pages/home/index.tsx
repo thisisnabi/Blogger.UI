@@ -12,7 +12,7 @@ interface IFilters {
 }
 
 const Home = () => {
-  const [filters, setFilters] = useState<IFilters>({ Size: 20, Page: 1 })
+  const [filters, setFilters] = useState<IFilters>({ Size: 10, Page: 1 })
 
   const fetchArticles = () => {
     return API.articles.articlesList(filters).then((res) => res.data)
@@ -27,7 +27,7 @@ const Home = () => {
               {data?.map((article) => (
                 <div
                   key={`article-${article?.articleId}`}
-                  className={'space-y-2 border-b-1 last:border-b-0 py-2'}
+                  className={'space-y-2 border-b-2 last:border-b-0 py-3'}
                 >
                   <Link
                     to={`/articles/${article?.articleId}`}
