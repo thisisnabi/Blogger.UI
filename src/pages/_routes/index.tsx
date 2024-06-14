@@ -4,8 +4,12 @@ import { Route, Routes } from 'react-router-dom'
 
 const Home = React.lazy(() => import('pages/home'))
 const PageNotFound = React.lazy(() => import('pages/404'))
+const Tags = React.lazy(() => import('pages/tags'))
 
-const routes: RouteProps[] = [{ path: '/', element: <Home /> }]
+const routes: RouteProps[] = [
+  { path: '/', element: <Home /> },
+  { path: '/tags', element: <Tags /> },
+]
 
 const AppRoutes = () => {
   return (

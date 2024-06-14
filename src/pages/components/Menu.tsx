@@ -39,12 +39,12 @@ const Menu = () => {
           key={`menu-item-{${index}}`}
           to={node.to}
           className={classNames(
-            'flex items-center group/item !h-[56px] hover:text-primary hover:text-white rounded-4 px-5 gap-x-3  w-full h-full text-gray1 group-hover/item:text-white',
+            'flex items-center group/item !h-[56px] hover:text-primary rounded-4 px-5 gap-x-3  w-full h-full text-gray1 ',
             pathname === node.to ? 'bg-primary !text-white' : null
           )}
         >
           <span>{node.icon}</span>
-          <span className={'text-4'}>{node.label}</span>
+          <h4>{node.label}</h4>
           <span
             className={
               'invisible group-hover/item:visible text-black ml-auto font-semibold text-primary'

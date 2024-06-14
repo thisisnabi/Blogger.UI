@@ -13,6 +13,7 @@
     "@types/react-dom": "^18.3.0",
     "axios": "^1.7.2",
     "classnames": "^2.5.1",
+    "lodash": "^4.17.21",
     "rc-pagination": "^4.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -21,6 +22,7 @@
     "react-scripts": "5.0.1",
     "react-toastify": "^10.0.5",
     "swagger-typescript-api": "^13.0.5",
+    "tailwindcss-animatecss": "^3.0.5",
     "typescript": "^4.9.5",
     "vite-tsconfig-paths": "^4.3.2",
     "web-vitals": "^2.1.4"
@@ -55,8 +57,10 @@
   },
   "devDependencies": {
     "@svgr/cli": "^8.1.0",
+    "@types/lodash": "^4.17.5",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@vitejs/plugin-react": "^4.3.1",
+    "animate.css": "^4.1.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-react-app": "^7.0.1",

@@ -8,7 +8,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <div className={'py-8 w-full soft-scrollbar'}>
       <div
         className={
-          '!h-full mx-auto w-full max-w-[1260px] flex item-start gap-x-6 soft-scrollbar'
+          '!h-full mx-auto w-full max-w-[1181px] flex item-start gap-x-6 soft-scrollbar'
         }
       >
         <LeftSidebar />

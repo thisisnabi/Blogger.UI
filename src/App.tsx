@@ -1,4 +1,5 @@
 import 'rc-pagination/assets/index.css'
+import 'animate.css'
 
 import ScrollToTop from 'components/scroll-to-top'
 import AppRoutes from 'pages/_routes'
