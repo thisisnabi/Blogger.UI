@@ -1,4 +1,5 @@
 import './style/_base.css'
+import './style/scrollbar.css'
 import './style/pagination-style.css'
 
 import React from 'react'

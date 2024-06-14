@@ -5,10 +5,10 @@ import React from 'react'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className={'overflow-x-hidden !h-screen bg-[#f5f5f7] '}>
+    <div className={'py-8 w-full soft-scrollbar'}>
       <div
         className={
-          'h-full mx-auto w-full max-w-[1260px] mt-8 flex item-start gap-x-6 !pb-5'
+          '!h-full mx-auto w-full max-w-[1260px] flex item-start gap-x-6 soft-scrollbar'
         }
       >
         <LeftSidebar />

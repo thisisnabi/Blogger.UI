@@ -4,7 +4,6 @@
 /**/
 @import "tailwindcss/utilities";
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,10 +16,9 @@ a:hover {
 
 /*@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');*/
 
-
 body {
-    background-color: lightgray;
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
+    background-color: #f5f5f7;
 
     /*font-family: 'Rubik', sans-serif;*/
     font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
