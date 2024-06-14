@@ -1,13 +1,44 @@
-@import "tailwindcss/base";
-/**/
-@import "tailwindcss/components";
-/**/
-@import "tailwindcss/utilities";
+/*@import "tailwindcss/base";*/
+/*!**!*/
+/*@import "tailwindcss/components";*/
+/*!**!*/
+/*@import "tailwindcss/utilities";*/
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    h1 {
+        @apply text-2xl;
+        @apply font-semibold;
+    }
+
+    h2 {
+        @apply text-xl;
+        @apply font-medium;
+    }
+
+    h3 {
+        @apply text-lg;
+        @apply font-normal;
+    }
+
+    h4 {
+        @apply text-base;
+        @apply font-normal;
+    }
+
+    h5 {
+        @apply text-sm;
+        @apply font-normal;
+    }
+
+    h6 {
+        @apply text-xs;
+        @apply font-normal;
+    }
+}
 
 a:hover {
     @apply text-primary;
