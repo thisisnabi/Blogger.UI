@@ -83,18 +83,18 @@ function FetchData<T>(props: Props<T>) {
           loadingClassName
         )}
       >
-        موردی یافت نشد
+        not found
       </div>
     )
   }
 
   if (loading)
     return (
-      <div className={'w-full h-full flex items-center justify-center'}>
+      <div className={'w-full h-full'}>
         <img
           src={loadingGif}
           alt={'loading-spinner...'}
-          className={'w-[100px]'}
+          className={'w-[100px] mx-auto'}
         />
       </div>
     )

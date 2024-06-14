@@ -8,7 +8,7 @@ const ScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [pathname])
 
-  return null
+  return <></>
 }
 
 export default ScrollToTop
