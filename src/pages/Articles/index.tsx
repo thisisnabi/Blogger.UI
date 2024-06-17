@@ -13,7 +13,12 @@ const Articles = () => {
   const [filters, setFilters] = useState<IFilters>({ Size: 10, Page: 1 })
 
   const fetchArticles = () => {
-    return API.articles.articlesList(filters).then((res) => res.data)
+    return API.articles
+      .articlesList(filters)
+      .then((res) => res.data)
+      .catch((er) => {
+        console.log(er)
+      })
   }
 
   return (

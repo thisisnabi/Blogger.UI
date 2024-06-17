@@ -14,7 +14,7 @@ module.exports = {
       bounceInSpeed: 750,
       bounceOutSpeed: 750,
       animationDelaySpeed: 500,
-      classes: ['bounce', 'heartBeat', 'fadeInDown', 'fadeInUp'],
+      classes: ['bounce', 'heartBeat', 'fadeInDown', 'fadeInUp', 'fadeOutDown'],
     },
     extend: {
 

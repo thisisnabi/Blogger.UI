@@ -1,6 +1,6 @@
-import loadingGif from 'assets/loading.gif'
 import axios from 'axios'
 import classNames from 'classnames'
+import Loading from 'components/loading'
 import React, { ReactNode, useEffect, useMemo, useState } from 'react'
 
 export type StateType<T> = {
@@ -28,7 +28,9 @@ function FetchData<T>(props: Props<T>) {
     request,
     children,
     handleEmptyData = true,
+    handleLoading = true,
     loadingClassName,
+    handleError = true,
   } = props
 
   const [data, setData] = useState<T | undefined>()
@@ -88,16 +90,9 @@ function FetchData<T>(props: Props<T>) {
     )
   }
 
-  if (loading)
-    return (
-      <div className={'w-full h-full'}>
-        <img
-          src={loadingGif}
-          alt={'loading-spinner...'}
-          className={'w-[100px] mx-auto'}
-        />
-      </div>
-    )
+  if (loading && handleLoading) return <Loading />
+
+  if (error && handleError) return <div>{error}</div>
 
   return (
     <>

@@ -1,54 +1,46 @@
 import { TagIcon } from '@heroicons/react/outline'
 import classNames from 'classnames'
 import FetchData from 'components/fetch-data'
-import { filter } from 'lodash'
 import ArticlesList from 'pages/Articles/ArticlesList'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import API from 'services/Api'
-import { GetArticlesResponse } from 'services/ApiGlobals'
 
 const Tags = () => {
   const [searchParams, setSearchParams] = useSearchParams()
 
   const [loading, setLoading] = useState<boolean>(false)
-  const [articles, setArticles] = useState<GetArticlesResponse[]>()
-  const [animate, setAnimate] = useState<boolean>()
+  const [animate, setAnimate] = useState<'up' | 'down' | null>(null)
+  const category = searchParams.get('category')
 
   const fetchTags = () => {
-    return API.articles.tagsList().then((res) => res?.data)
+    return API.articles
+      .tagsList()
+      .then((res) => res?.data)
+      .catch((er) => {
+        console.log(er)
+      })
   }
 
   const fetchArticles = () => {
     setLoading(true)
-    return API.articles
-      .articlesList()
-      .then((res) => {
-        setArticles(res?.data || [])
+    setAnimate('down')
+    let req
+    if (category) req = API.articles.taggedList({ Tag: category })
+    else req = API.articles.articlesList()
 
+    return req
+      .then((res) => {
+        setAnimate('up')
         return res.data
+      })
+      .catch((er) => {
+        console.log(er)
       })
       .finally(() => {
         setLoading(false)
       })
   }
-
-  const filteredArticles = useMemo(() => {
-    const category = searchParams.get('category')
-
-    if (category) {
-      let copy = [...(articles || [])]
-
-      copy = filter(
-        copy,
-        (x) => x?.tags && x?.tags?.includes(category)
-      ) as typeof copy
-
-      return copy
-    }
-
-    return []
-  }, [searchParams.get('category')])
 
   return (
     <div className={'space-y-3'}>
@@ -69,7 +61,7 @@ const Tags = () => {
                 )}
                 onClick={() => {
                   if (tag?.name) setSearchParams({ category: tag?.name })
-                  setAnimate(!animate)
+                  setAnimate('down')
                 }}
               >
                 <span>{tag?.name}</span>
@@ -79,10 +71,16 @@ const Tags = () => {
           }
         </FetchData>
       </div>
-      <FetchData request={fetchArticles} deps={[]}>
-        {() => (
-          <div className={classNames('animate__animated animate__fadeInDown')}>
-            <ArticlesList data={filteredArticles || []} />
+      <FetchData request={fetchArticles} deps={[category]}>
+        {(data) => (
+          <div
+            className={classNames(
+              'animate__animated',
+              animate == 'up' ? 'animate__fadeInUp' : null,
+              animate == 'down' ? 'animate__fadeOutDown' : null
+            )}
+          >
+            <ArticlesList data={data || []} />
           </div>
         )}
       </FetchData>
