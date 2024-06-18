@@ -5,17 +5,20 @@ import React from 'react'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className={'py-8 w-full soft-scrollbar'}>
+    <div className={'py-8 w-full'}>
       <div
         className={
           '!h-full mx-auto w-full max-w-[1181px] flex item-start gap-x-6 soft-scrollbar'
         }
       >
         <LeftSidebar />
-        <div className={'w-[552px] space-y-2'}>
+
+        {/*inner */}
+        <div className={'w-[552px] space-y-2 h-[1200px] space-y-5'}>
           <SearchInput />
-          {children}
+          <div className={'h-full'}>{children}</div>
         </div>
+
         <RightSidebar />
       </div>
     </div>

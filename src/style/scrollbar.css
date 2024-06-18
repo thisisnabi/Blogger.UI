@@ -1,16 +1,43 @@
-/* For Chrome, Edge, and Safari */
-::-webkit-scrollbar {
-    width: 14px; /* width of the entire scrollbar */
+/*!* For Chrome, Edge, and Safari *!*/
+/*::-webkit-scrollbar {*/
+/*    width: 14px; !* width of the entire scrollbar *!*/
+/*}*/
+
+/*::-webkit-scrollbar-track {*/
+/*    background: lightgray !important; !* color of the scrollbar track *!*/
+/*}*/
+
+/*::-webkit-scrollbar-thumb {*/
+/*    background-color: #8b75d2; !* color of the scrollbar handle *!*/
+/*    border-radius: 10px; !* roundness of the scrollbar handle *!*/
+/*    border: 3px solid #f1f1f1; !* creates padding around scrollbar handle *!*/
+/*}*/
+
+.soft-scrollbar::-webkit-scrollbar {
+    width: 6px;
 }
 
-::-webkit-scrollbar-track {
-    background: lightgray !important; /* color of the scrollbar track */
+.soft-scrollbar::-webkit-scrollbar-track {
+    background: #e5e7eb;
 }
 
-::-webkit-scrollbar-thumb {
-    background-color: #8b75d2; /* color of the scrollbar handle */
-    border-radius: 10px; /* roundness of the scrollbar handle */
-    border: 3px solid #f1f1f1; /* creates padding around scrollbar handle */
+.soft-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #999;
+    border-radius: 20px;
+}
+
+
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #e5e7eb;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #6F49E8;
+    border-radius: 20px;
 }
 
 
@@ -18,3 +45,12 @@
 /* Firefox does not support ::-webkit-scrollbar pseudo-elements. */
 /* We can use scrollbar-width and scrollbar-color properties instead. */
 
+/*.soft-scrollbar {*/
+/*    scrollbar-width: thin;*/
+/*    scrollbar-color: #6F49E8 #f1f1f1;*/
+/*}*/
+
+/*body {*/
+/*    scrollbar-width: thin;*/
+/*    scrollbar-color: #6F49E8 #f1f1f1;*/
+/*}*/
