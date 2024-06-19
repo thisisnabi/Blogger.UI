@@ -22,6 +22,7 @@ module.exports = {
         'gray1': '#717B8E',
         'gray2': "#3D475C",
         'gray3': "#161A22",
+        'gray4': '#F5F7FA',
         'caption-gray': '#A8ADB8',
         'primary': '#6F49E8',
       },
