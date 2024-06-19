@@ -14,7 +14,7 @@ const ArticlesList = (props: ArticlesListProps) => {
       {data?.map((article) => (
         <div
           key={`article-${article?.articleId}`}
-          className={'space-y-2 border-b-2 last:border-b-0 py-3'}
+          className={'h-full space-y-2 border-b-2 last:border-b-0 py-3'}
         >
           <Link
             to={`/articles/${article?.articleId}`}

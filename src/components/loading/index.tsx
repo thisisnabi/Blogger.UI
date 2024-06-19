@@ -7,7 +7,7 @@ const Loading = () => {
       <img
         src={loadingGif}
         alt={'loading-spinner...'}
-        className={'w-[100px] mx-auto'}
+        className={'w-[80px] mx-auto'}
       />
     </div>
   )

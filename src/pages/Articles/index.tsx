@@ -29,7 +29,6 @@ const Articles = () => {
       })
   }
 
-  console.log(document.documentElement.scrollHeight)
   return (
     <FetchData
       request={fetchArticles}
@@ -44,21 +43,14 @@ const Articles = () => {
             <InfiniteScroll
               next={() => setFilters({ ...filters, Page: filters?.Page + 1 })}
               hasMore={!(data && data?.length < filters.Size)}
-              // hasMore={true}
-              height={'1200px'}
-              className={'h-full soft-scrollbar'}
-              endMessage={'no mre data'}
+              height={'1100px'}
+              className={'h-full soft-scrollbar px-2'}
               loader={<Loading />}
               dataLength={totalData?.length}
             >
               <ArticlesList data={totalData || []} />
             </InfiniteScroll>
-            {/*<Pagination*/}
-            {/*  onChange={(page) => setFilters({ ...filters, Page: page })}*/}
-            {/*  pageSize={filters.Size}*/}
-            {/*  total={data?.length || 1}*/}
-            {/*  current={filters?.Page}*/}
-            {/*/>*/}
+
           </div>
         )
       }}

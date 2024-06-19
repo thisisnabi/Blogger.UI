@@ -6,6 +6,8 @@ import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import API from 'services/Api'
 
+import SvgNote from '../../assets/icons/Note'
+
 const Tags = () => {
   const [searchParams, setSearchParams] = useSearchParams()
 
@@ -55,7 +57,7 @@ const Tags = () => {
               <div
                 key={`tag-${index}`}
                 className={classNames(
-                  'bg-white shadow-md rounded-4 py-2 px-3 text-[13px] space-x-3 whitespace-nowrap cursor-pointer',
+                  'bg-white flex items-center shadow-md rounded-4 py-2 px-3 text-[13px] space-x-3 whitespace-nowrap cursor-pointer',
                   'hover:scale-110',
                   loading ? 'pointer-events-none ' : 'pointer-events-auto'
                 )}
@@ -64,8 +66,14 @@ const Tags = () => {
                   setAnimate('down')
                 }}
               >
-                <span>{tag?.name}</span>
-                <span className={'text-caption-gray'}>{tag?.count}</span>
+                <div>{tag?.name}</div>
+                <div
+                  className={'scale-125 text-caption-gray flex items-center'}
+                >
+                  <SvgNote className={'text-caption-gray'} />
+
+                  {tag?.count}
+                </div>
               </div>
             ))
           }
@@ -73,14 +81,16 @@ const Tags = () => {
       </div>
       <FetchData request={fetchArticles} deps={[category]}>
         {(data) => (
-          <div
-            className={classNames(
-              'animate__animated',
-              animate == 'up' ? 'animate__fadeInUp' : null,
-              animate == 'down' ? 'animate__fadeOutDown' : null
-            )}
-          >
-            <ArticlesList data={data || []} />
+          <div className={'!h-[800px] overflow-y-hidden'}>
+            <div
+              className={classNames(
+                '!h-full animate__animated overflow-y-auto',
+                animate == 'up' ? 'animate__fadeInUp soft-scrollbar' : null,
+                animate == 'down' ? 'animate__fadeOutDown ' : null
+              )}
+            >
+              <ArticlesList data={data || []} />
+            </div>
           </div>
         )}
       </FetchData>

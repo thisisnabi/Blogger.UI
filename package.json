@@ -35,7 +35,7 @@
     "eject": "react-scripts eject",
     "lint:fix": "eslint --fix src",
     "gen:api": "swagger-typescript-api -p https://apis.thisisnabi.dev/swagger/v1/swagger.json --axios -o  -n src/services/ApiGlobals.ts",
-    "gen:svg": "svgr --icon --replace-attr-values '#000={props.color}' --typescript --expand-props --out-dir  src/img/icons src/img/svg-icons"
+    "gen:svg": "svgr --icon --replace-attr-values '#000={props.color}' --typescript --expand-props --out-dir  src/assets/icons src/assets/svg-icons"
   },
   "eslintConfig": {
     "extends": [

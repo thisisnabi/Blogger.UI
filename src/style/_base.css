@@ -10,8 +10,8 @@
 
 @layer base {
     h1 {
-        @apply text-2xl;
-        @apply font-semibold;
+        @apply text-base lg:text-2xl;
+        @apply font-bold lg:font-semibold;
     }
 
     h2 {
@@ -26,7 +26,7 @@
 
     h4 {
         @apply text-base;
-        @apply font-normal;
+        @apply font-semibold;
     }
 
     h5 {
