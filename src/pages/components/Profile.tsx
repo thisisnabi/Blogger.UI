@@ -13,7 +13,7 @@ const Profile = () => {
       <div className={'mt-[14px]'}>
         <h1 className={'font-semibold'}>Nabi Karampour</h1>
         <span className={'text-caption-gray text-3'}>
-           Husband | Engineer | Blogger | Speaker | Tech YouTuber | .NET Enthusiast 
+          Engineer | Blogger | Speaker | Tech YouTuber | .NET Enthusiast 
         </span>
       </div>
     </div>
