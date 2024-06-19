@@ -1,0 +1,61 @@
+/*@import "tailwindcss/base";*/
+/*!**!*/
+/*@import "tailwindcss/components";*/
+/*!**!*/
+/*@import "tailwindcss/utilities";*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --navbar-height: 48px;
+}
+
+@layer base {
+    h1 {
+        @apply text-base lg:text-2xl;
+        @apply font-bold lg:font-semibold;
+    }
+
+    h2 {
+        @apply text-xl;
+        @apply font-semibold;
+    }
+
+    h3 {
+        @apply text-lg;
+        @apply font-normal;
+    }
+
+    h4 {
+        @apply text-base;
+        @apply font-normal lg:font-semibold;
+    }
+
+    h5 {
+        @apply text-sm;
+        @apply font-normal;
+    }
+
+    h6 {
+        @apply text-xs;
+        @apply font-normal;
+    }
+}
+
+a:hover {
+    @apply text-primary;
+    /* Custom hover color */
+}
+
+/*@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');*/
+
+body {
+    /*overflow-x: hidden;*/
+    background-color: #f5f5f7;
+
+    /*font-family: 'Rubik', sans-serif;*/
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    /*//background: $light-bg-color;*/
+}
