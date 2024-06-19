@@ -8,6 +8,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --navbar-height: 48px;
+}
+
 @layer base {
     h1 {
         @apply text-base lg:text-2xl;
@@ -26,7 +30,7 @@
 
     h4 {
         @apply text-base;
-        @apply font-semibold;
+        @apply font-normal lg:font-semibold;
     }
 
     h5 {

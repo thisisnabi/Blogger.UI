@@ -2,6 +2,8 @@ import React from 'react'
 import { RouteProps } from 'react-router/dist/lib/components'
 import { Route, Routes } from 'react-router-dom'
 
+import Loading from '../../components/loading'
+
 const Home = React.lazy(() => import('pages/home'))
 const PageNotFound = React.lazy(() => import('pages/404'))
 const Tags = React.lazy(() => import('pages/tags'))
@@ -17,7 +19,13 @@ const routes: RouteProps[] = [
 
 const AppRoutes = () => {
   return (
-    <React.Suspense fallback={<div>loading</div>}>
+    <React.Suspense
+      fallback={
+        <div className={'w-full h-full'}>
+          <Loading className={'m-auto'} />
+        </div>
+      }
+    >
       <Routes>
         {routes.map((node, index) => (
           <Route key={`route-${index}`} {...node} />

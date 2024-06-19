@@ -81,10 +81,10 @@ const Tags = () => {
       </div>
       <FetchData request={fetchArticles} deps={[category]}>
         {(data) => (
-          <div className={'!h-[800px] overflow-y-hidden'}>
+          <div className={'!h-[800px]'}>
             <div
               className={classNames(
-                '!h-full animate__animated overflow-y-auto',
+                '!h-full animate__animated ',
                 animate == 'up' ? 'animate__fadeInUp soft-scrollbar' : null,
                 animate == 'down' ? 'animate__fadeOutDown ' : null
               )}

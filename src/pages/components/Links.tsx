@@ -24,7 +24,9 @@ const Links = () => {
     <div className={'flex items-center justify-between w-full flex-wrap px-3'}>
       {links?.map((link, index) => (
         <div key={`link-${index}`}>
-          <a href={link?.to}>{link?.icon}</a>
+          <a href={link?.to} target={'_blank'} rel="noreferrer">
+            {link?.icon}
+          </a>
         </div>
       ))}
     </div>

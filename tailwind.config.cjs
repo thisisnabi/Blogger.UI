@@ -17,6 +17,9 @@ module.exports = {
       classes: ['bounce', 'heartBeat', 'fadeInDown', 'fadeInUp', 'fadeOutDown'],
     },
     extend: {
+      spacing: {
+        'navbar-height': `var(--navbar-height)`
+      },
 
       colors: {
         'gray1': '#717B8E',

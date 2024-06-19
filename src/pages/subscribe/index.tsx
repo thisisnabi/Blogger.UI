@@ -49,7 +49,7 @@ const Subscribe = () => {
       <h2>Subscribe</h2>
       <div
         className={classNames(
-          'flex flex-wrap items-center justify-between w-full gap-x-3',
+          'flex flex-wrap items-center justify-between w-full gap-3',
           isLoading ? 'pointer-events-none' : null
         )}
       >

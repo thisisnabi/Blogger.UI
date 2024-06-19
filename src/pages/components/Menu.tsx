@@ -6,7 +6,7 @@ import {
   TagIcon,
 } from '@heroicons/react/outline'
 import { ChevronRightIcon } from '@heroicons/react/solid'
-import classNames from 'classnames'
+import cx from 'classnames'
 import { Link, useLocation } from 'react-router-dom'
 
 const menuItems = [
@@ -38,17 +38,18 @@ const Menu = () => {
         <Link
           key={`menu-item-{${index}}`}
           to={node.to}
-          className={classNames(
-            'flex items-center group/item !h-[56px] hover:text-primary rounded-4 px-5 gap-x-3  w-full h-full text-gray1 ',
+          className={cx(
+            'flex items-center group/item !h-[56px] hover:text-primary rounded-4 px-5 gap-x-3 w-full h-full text-gray1 !text-[13px]',
             pathname === node.to ? 'bg-primary !text-white' : null
           )}
         >
           <span>{node.icon}</span>
           <h4>{node.label}</h4>
           <span
-            className={
-              'invisible group-hover/item:visible text-black ml-auto font-semibold text-primary'
-            }
+            className={cx(
+              'invisible group-hover/item:visible text-black ml-auto font-semibold text-primary',
+              pathname === node.to ? '!text-white' : null
+            )}
           >
             <ChevronRightIcon className={'w-4'} />
           </span>
