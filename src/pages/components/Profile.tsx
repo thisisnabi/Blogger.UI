@@ -7,7 +7,7 @@ const Profile = () => {
     >
       <img
         alt={'profile'}
-        className={'rounded-full w-[88px] h-[88px]'}
+        className={'rounded-full w-[100px] h-[100px]'}
         src={profile}
       />
       <div className={'mt-[14px]'}>
