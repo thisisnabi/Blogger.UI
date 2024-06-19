@@ -20,7 +20,7 @@ const Navbar = () => {
           className={'w-6 cursor-pointer'}
           onClick={() => setOpen(!open)}
         />
-        <h5 className={'font-bold'}>Nabi Karampoor</h5>
+        <h5 className={'font-bold'}>Nabi Karampour</h5>
         <SearchIcon className={'stroke-2 w-6'} />
       </div>
       <Drawer

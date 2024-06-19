@@ -4,7 +4,7 @@ const About = () => {
       <h2>
         Hello ...
         <br />
-        I’m Nabi karam poor
+        I’m Nabi karam pour
       </h2>
     </div>
   )

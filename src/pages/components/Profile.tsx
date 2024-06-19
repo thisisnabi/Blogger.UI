@@ -12,7 +12,7 @@ const Profile = () => {
       />
       <div className={'mt-[14px]'}>
         <span className={'text-gray1 text-3.5'}>Developer</span>
-        <h1 className={'font-semibold'}>Nabi Karampoor</h1>
+        <h1 className={'font-semibold'}>Nabi Karampour</h1>
         <span className={'text-caption-gray text-3'}>
           Father, Husband, Engineer
         </span>
