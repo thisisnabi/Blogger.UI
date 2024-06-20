@@ -11,7 +11,7 @@ import SvgNote from '../../assets/icons/Note'
 const Tags = () => {
   const [searchParams, setSearchParams] = useSearchParams()
 
-  const [loading, setLoading] = useState<boolean>(false)
+  // const [loading, setLoading] = useState<boolean>(false)
   const [animate, setAnimate] = useState<'up' | 'down' | null>(null)
   const category = searchParams.get('category')
 
@@ -25,7 +25,7 @@ const Tags = () => {
   }
 
   const fetchArticles = () => {
-    setLoading(true)
+    // setLoading(true)
     setAnimate('down')
     let req
     if (category) req = API.articles.taggedList({ Tag: category })
@@ -40,10 +40,11 @@ const Tags = () => {
         console.log(er)
       })
       .finally(() => {
-        setLoading(false)
+        // setLoading(false)
       })
   }
 
+  console.log(category)
   return (
     <div className={'space-y-3'}>
       <div className={'flex items-center border-b-1 py-3'}>
@@ -58,8 +59,9 @@ const Tags = () => {
                 key={`tag-${index}`}
                 className={classNames(
                   'bg-white flex items-center shadow-md rounded-4 py-2 px-3 text-[13px] space-x-3 whitespace-nowrap cursor-pointer',
-                  'hover:scale-110',
-                  loading ? 'pointer-events-none ' : 'pointer-events-auto'
+                  'transform transition-transform duration-200 ease-in-out hover:scale-110 focus:scale-110 active:scale-105',
+                  // loading ? 'pointer-events-none' : 'pointer-events-auto',
+                  category == tag?.name ? '!bg-primary text-white' : null
                 )}
                 onClick={() => {
                   if (tag?.name) setSearchParams({ category: tag?.name })
