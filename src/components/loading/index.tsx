@@ -8,7 +8,7 @@ const Loading = ({ className }: { className?: string }) => {
       <img
         src={loadingGif}
         alt={'loading-spinner...'}
-        className={classNames('w-[80px] mx-auto', className)}
+        className={classNames('w-[50px] mx-auto', className)}
       />
     </div>
   )

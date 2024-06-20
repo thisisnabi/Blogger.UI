@@ -5,9 +5,11 @@ import { LayoutProps } from '../index'
 import LeftSidebar from './LeftSidebar'
 import RightSidebar from './RightSidebar'
 
-const DesktopLayout = ({ children }: LayoutProps) => {
+const DesktopLayout = React.memo(function DesktopLayout({
+  children,
+}: LayoutProps) {
   return (
-    <div className={'py-8 w-full hidden xl:block'}>
+    <div className={'py-8 w-full hidden lg:block'}>
       <div
         className={
           '!h-full mx-auto w-full lg:max-w-[1181px] flex item-start justify-center gap-x-6 soft-scrollbar'
@@ -25,6 +27,6 @@ const DesktopLayout = ({ children }: LayoutProps) => {
       </div>
     </div>
   )
-}
+})
 
 export default DesktopLayout
