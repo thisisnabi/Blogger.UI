@@ -3,17 +3,19 @@ import books from 'assets/img/pictuer-books.png'
 
 const MyBooks = () => {
   return (
-    <div className={'w-full bg-white rounded-3 p-6 '}>
-      <div className={'flex items-center gap-x-2 font-medium mb-[10px]'}>
+    <div className={'w-full bg-white rounded-3 pt-4'}>
+      <div className={'flex items-center gap-x-2 font-medium mb-[10px] px-6'}>
         <ClipboardListIcon className={'text-primary w-5'} />
         <span className={'text-4'}>My Books</span>
       </div>
 
-      <img
-        src={books}
-        alt={'my-book'}
-        className={'w-[216px] h-[130px] rounded-2'}
-      />
+      <a href={'https://lu.ma/thisisnabi'} target={'_blank'} rel="noreferrer">
+        <img
+          src={books}
+          alt={'my-book'}
+          className={'w-full h-[130px] rounded-2 rounded-t-none object-cover '}
+        />
+      </a>
     </div>
   )
 }
