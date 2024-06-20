@@ -1,9 +1,13 @@
 import { TagIcon } from '@heroicons/react/outline'
 import FetchData from 'components/fetch-data'
 import Spinner from 'components/loading/Spinner'
+import TagsList from 'pages/tags/TagsList'
+import { useNavigate } from 'react-router-dom'
 import API from 'services/Api'
 
 const PopularTag = () => {
+  const navigate = useNavigate()
+
   const fetchTags = () => {
     return API.articles.tagsPopularsList().then((res) => {
       return res?.data
@@ -20,17 +24,13 @@ const PopularTag = () => {
               <p className={'text-[18px] font-medium'}>Popular Tag</p>
               {loading && <Spinner />}
             </div>
-            <div className={'flex items-center gap-2 flex-wrap min-h-[100px]'}>
-              {data?.map((tag, index) => (
-                <div
-                  key={`popular-tag-${index}`}
-                  className={
-                    'w-fit shadow-md whitespace-nowrap bg-white text-gray2 text-[13px] rounded-4 py-2 px-3'
-                  }
-                >
-                  {tag?.name}
-                </div>
-              ))}
+            <div className={'min-h-[100px] pl-2'}>
+              <TagsList
+                tags={data || []}
+                onSelect={(value) => {
+                  navigate({ pathname: '/tags', search: `category=${value}` })
+                }}
+              />
             </div>
           </>
         )}
