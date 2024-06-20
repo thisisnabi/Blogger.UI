@@ -1,5 +1,6 @@
 import { TagIcon } from '@heroicons/react/outline'
 import FetchData from 'components/fetch-data'
+import Spinner from 'components/loading/Spinner'
 import API from 'services/Api'
 
 const PopularTag = () => {
@@ -11,24 +12,27 @@ const PopularTag = () => {
 
   return (
     <div className={'space-y-3 pb-6'}>
-      <div className={'flex items-center gap-x-3'}>
-        <TagIcon className={'w-6 text-primary'} />
-        <p className={'text-[18px] font-medium'}>Popular Tag</p>
-      </div>
-      <FetchData request={fetchTags} deps={[]}>
-        {(data) => (
-          <div className={'flex items-center gap-2 flex-wrap'}>
-            {data?.map((tag, index) => (
-              <div
-                key={`popular-tag-${index}`}
-                className={
-                  'w-fit shadow-md whitespace-nowrap bg-white text-gray2 text-[13px] rounded-4 py-2 px-3'
-                }
-              >
-                {tag?.name}
-              </div>
-            ))}
-          </div>
+      <FetchData request={fetchTags} deps={[]} handleLoading={false}>
+        {(data, { loading }) => (
+          <>
+            <div className={'flex items-center gap-x-3'}>
+              <TagIcon className={'w-6 text-primary'} />
+              <p className={'text-[18px] font-medium'}>Popular Tag</p>
+              {loading && <Spinner />}
+            </div>
+            <div className={'flex items-center gap-2 flex-wrap min-h-[100px]'}>
+              {data?.map((tag, index) => (
+                <div
+                  key={`popular-tag-${index}`}
+                  className={
+                    'w-fit shadow-md whitespace-nowrap bg-white text-gray2 text-[13px] rounded-4 py-2 px-3'
+                  }
+                >
+                  {tag?.name}
+                </div>
+              ))}
+            </div>
+          </>
         )}
       </FetchData>
     </div>

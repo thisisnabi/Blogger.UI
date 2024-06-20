@@ -1,4 +1,5 @@
 import { CalendarIcon, ClockIcon, TagIcon } from '@heroicons/react/outline'
+import cx from 'classnames'
 import { parseDate } from 'helpers/helpers'
 import { Link } from 'react-router-dom'
 import { GetArticlesResponse } from 'services/ApiGlobals'
@@ -6,6 +7,14 @@ import { GetArticlesResponse } from 'services/ApiGlobals'
 type ArticlesListProps = {
   data?: GetArticlesResponse[]
 }
+
+const colors = [
+  '230,147,173',
+  '224,183,226',
+  '186,166,206',
+  '219,240,246',
+  '79,192,230',
+]
 
 const ArticlesList = (props: ArticlesListProps) => {
   const { data } = props
@@ -40,14 +49,15 @@ const ArticlesList = (props: ArticlesListProps) => {
               {article?.readOnMinutes || 0 > 1 ? 'minutes' : 'minute'}
             </div>
             <div className={'text-3 flex items-center flex-wrap'}>
-              <TagIcon className={'mr-2 w-4 text-primary'} />
-              <div className={'flex items-center gap-x-2 flex-wrap'}>
+              <TagIcon className={'mr-2 w-4 text-gray2'} />
+              <div className={'flex items-center gap-x-1 flex-wrap'}>
                 {article?.tags?.map((tag, index) => (
                   <span
                     key={`tag-${tag}.${index}`}
-                    className={
-                      'leading-6 px-2 rounded-3 bg-purple-200 text-primary text-xs'
-                    }
+                    style={{ backgroundColor: `rgb(${colors[index]}, 60%)` }}
+                    className={cx(
+                      'leading-6 px-3 rounded-3 text-xs rounded-3 text-gray-600'
+                    )}
                   >
                     {tag}
                   </span>
