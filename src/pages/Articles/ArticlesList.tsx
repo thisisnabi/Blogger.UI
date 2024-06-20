@@ -36,21 +36,28 @@ const ArticlesList = (props: ArticlesListProps) => {
           <p className={'text-gray1 text-[13px] font-normal'}>
             {article?.summary}
           </p>
-          <div className={'flex items-center gap-x-5 text-gray1'}>
+          {/*--------info---------------*/}
+          <div
+            className={
+              'flex items-center gap-x-5 text-gray1 flex-wrap leading-7'
+            }
+          >
             <div
-              className={'text-xs flex items-center text-blue-800 font-medium'}
+              className={
+                'text-xs flex items-center text-blue-800 font-medium shrink-0'
+              }
             >
               <CalendarIcon className={'mr-2 w-4'} />
               {parseDate(article?.publishedOnUtc || '')}
             </div>
-            <div className={'text-3 flex items-center text-blue-950'}>
+            <div className={'text-3 flex items-center text-blue-950 shrink-0'}>
               <ClockIcon className={'mr-2 w-4'} />
               {article.readOnMinutes}{' '}
               {article?.readOnMinutes || 0 > 1 ? 'minutes' : 'minute'}
             </div>
-            <div className={'text-3 flex items-center flex-wrap'}>
+            <div className={'text-3 flex items-center flex-wrap shrink-0'}>
               <TagIcon className={'mr-2 w-4 text-gray2'} />
-              <div className={'flex items-center gap-x-1 flex-wrap'}>
+              <div className={'flex items-center gap-x-1 flex-wrap shrink-0'}>
                 {article?.tags?.map((tag, index) => (
                   <span
                     key={`tag-${tag}.${index}`}
