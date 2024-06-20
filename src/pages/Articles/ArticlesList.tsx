@@ -28,18 +28,31 @@ const ArticlesList = (props: ArticlesListProps) => {
             {article?.summary}
           </p>
           <div className={'flex items-center gap-x-5 text-gray1'}>
-            <div className={'text-3 flex items-center'}>
+            <div
+              className={'text-xs flex items-center text-blue-800 font-medium'}
+            >
               <CalendarIcon className={'mr-2 w-4'} />
               {parseDate(article?.publishedOnUtc || '')}
             </div>
-            <div className={'text-3 flex items-center'}>
+            <div className={'text-3 flex items-center text-blue-950'}>
               <ClockIcon className={'mr-2 w-4'} />
-              {article.readOnMinutes}
-              min Read
+              {article.readOnMinutes}{' '}
+              {article?.readOnMinutes || 0 > 1 ? 'minutes' : 'minute'}
             </div>
-            <div className={'text-3 flex items-center'}>
-              <TagIcon className={'mr-2 w-4'} />
-              {article?.tags?.map((tag) => tag + '  ')}
+            <div className={'text-3 flex items-center flex-wrap'}>
+              <TagIcon className={'mr-2 w-4 text-primary'} />
+              <div className={'flex items-center gap-x-2 flex-wrap'}>
+                {article?.tags?.map((tag, index) => (
+                  <span
+                    key={`tag-${tag}.${index}`}
+                    className={
+                      'leading-6 px-2 rounded-3 bg-purple-200 text-primary text-xs'
+                    }
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
