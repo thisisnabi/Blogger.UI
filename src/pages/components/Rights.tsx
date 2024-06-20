@@ -1,8 +1,8 @@
 const Rights = () => {
   return (
-    <p className={'tex-3 text-caption-gray'}>
+    <h5 className={'border-t-1 leading-9 text-center text-caption-gray'}>
       All rights belong to Nabi Karampour
-    </p>
+    </h5>
   )
 }
 

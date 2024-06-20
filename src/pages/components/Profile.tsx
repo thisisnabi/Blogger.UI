@@ -10,10 +10,10 @@ const Profile = () => {
         className={'rounded-full w-[100px] h-[100px]'}
         src={profile}
       />
-      <div className={'mt-[14px]'}>
+      <div className={'mt-[14px] space-y-2'}>
         <h1 className={'font-semibold'}>Nabi Karampour</h1>
         <span className={'text-caption-gray text-3'}>
-          Engineer | Blogger | Speaker | Tech YouTuber | .NET Enthusiast 
+          Engineer | Blogger | Speaker | Tech YouTuber | .NET Enthusiast
         </span>
       </div>
     </div>

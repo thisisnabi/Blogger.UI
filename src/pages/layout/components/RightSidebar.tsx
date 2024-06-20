@@ -1,5 +1,6 @@
 import Links from 'pages/components/Links'
 import PopularTag from 'pages/components/PopularTag'
+import Rights from 'pages/components/Rights'
 import React from 'react'
 
 const RightSidebar = () => {
@@ -7,6 +8,7 @@ const RightSidebar = () => {
     <div className={'w-[264px] overflow-hidden space-y-4 '}>
       <PopularTag />
       <Links />
+      <Rights />
     </div>
   )
 }

@@ -1,8 +1,9 @@
 import { PaperAirplaneIcon } from '@heroicons/react/outline'
 import classNames from 'classnames'
+import Spinner from 'components/loading/Spinner'
 import React, { useRef, useState } from 'react'
+import { toast } from 'react-toastify'
 
-import Loading from '../../components/loading'
 import API from '../../services/Api'
 
 const isValidEmail = (email: string): boolean => {
@@ -17,18 +18,23 @@ const Subscribe = () => {
 
   const handleSubmit = async () => {
     if (inputRef.current) {
-      setIsLoading(true)
       const inputValue = inputRef.current.value
 
       if (!isValidEmail(inputValue)) {
         setHasError(true)
         return
       } else setHasError(false)
+      setIsLoading(true)
 
       await API.subscribe
         .subscribeCreate({ email: inputValue })
         .then(() => {
           if (inputRef.current) inputRef.current.value = ''
+          toast.success("We've sent a verification email to your inbox.")
+        })
+        .catch((er) => {
+          toast.error(er?.response?.data?.detail)
+          console.log(er?.response?.data?.detail)
         })
         .finally(() => setIsLoading(false))
     }
@@ -56,6 +62,7 @@ const Subscribe = () => {
         <input
           type={'email'}
           ref={inputRef}
+          autoFocus
           onKeyPress={handleKeyPress}
           className={
             'min-w-[310px] flex-1 h-[48px] rounded-2 bg-gray4 px-4 focus:outline-0 flex-grow-2'
@@ -64,11 +71,16 @@ const Subscribe = () => {
         />
         <button
           className={classNames(
-            'flex flex-1 items-center justify-center align-middle bg-primary whitespace-nowrap text-white rounded-2 h-[48px] gap-x-2 flex-grow-1'
+            'flex flex-1 shrink-0 items-center justify-center align-middle bg-primary whitespace-nowrap text-white rounded-2 h-[48px] gap-x-2 flex-grow-1'
           )}
+          disabled={!!inputRef?.current?.value}
+          onClick={handleSubmit}
         >
           {isLoading ? (
-            <Loading className={'w-[50px] m-auto'} />
+            <>
+              <Spinner />
+              sending...
+            </>
           ) : (
             <>
               <PaperAirplaneIcon className={'w-5 rotate-[50deg] mb-1'} />

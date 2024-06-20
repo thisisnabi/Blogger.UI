@@ -1,17 +1,29 @@
-import React from 'react'
+import MobileLayout from 'pages/layout/components/MobileLayout'
+import React, { useEffect, useState } from 'react'
 
 import DesktopLayout from './components/DesktopLayout'
-import MobileLayout from './components/MobileLayout'
 
 export type LayoutProps = { children: React.ReactNode }
 
 const Layout = ({ children }: LayoutProps) => {
-  return (
-    <>
-      <DesktopLayout>{children}</DesktopLayout>
-      <MobileLayout>{children}</MobileLayout>
-    </>
-  )
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 1024)
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+
+    return () => {
+      window.removeEventListener('resize', checkMobile)
+    }
+  }, [])
+  console.log(isMobile)
+
+  if (isMobile) return <MobileLayout>{children}</MobileLayout>
+  else return <DesktopLayout>{children}</DesktopLayout>
 }
 
 export default Layout

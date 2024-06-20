@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Youtube } from 'assets/icons'
+import { Github, Instagram, Linkedin, Twitter, Youtube } from 'assets/icons'
 
 const links = [
   {
@@ -16,6 +16,10 @@ const links = [
   {
     icon: <Github className={'text-gray1 w-6 h-6 shrink-0 '} />,
     to: ' https://github.com/thisisnabi',
+  },
+  {
+    icon: <Instagram className={'text-gray1 w-6 h-6 shrink-0 '} />,
+    to: ' https://instagram.com/thisisnabi',
   },
 ]
 

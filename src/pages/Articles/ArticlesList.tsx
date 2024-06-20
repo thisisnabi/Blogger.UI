@@ -1,4 +1,5 @@
 import { CalendarIcon, ClockIcon, TagIcon } from '@heroicons/react/outline'
+import cx from 'classnames'
 import { parseDate } from 'helpers/helpers'
 import { Link } from 'react-router-dom'
 import { GetArticlesResponse } from 'services/ApiGlobals'
@@ -6,6 +7,14 @@ import { GetArticlesResponse } from 'services/ApiGlobals'
 type ArticlesListProps = {
   data?: GetArticlesResponse[]
 }
+
+const colors = [
+  '230,147,173',
+  '224,183,226',
+  '186,166,206',
+  '219,240,246',
+  '79,192,230',
+]
 
 const ArticlesList = (props: ArticlesListProps) => {
   const { data } = props
@@ -27,19 +36,40 @@ const ArticlesList = (props: ArticlesListProps) => {
           <p className={'text-gray1 text-[13px] font-normal'}>
             {article?.summary}
           </p>
-          <div className={'flex items-center gap-x-5 text-gray1'}>
-            <div className={'text-3 flex items-center'}>
+          {/*--------info---------------*/}
+          <div
+            className={
+              'flex items-center gap-x-5 text-gray1 flex-wrap leading-7'
+            }
+          >
+            <div
+              className={
+                'text-xs flex items-center text-blue-800 font-medium shrink-0'
+              }
+            >
               <CalendarIcon className={'mr-2 w-4'} />
               {parseDate(article?.publishedOnUtc || '')}
             </div>
-            <div className={'text-3 flex items-center'}>
+            <div className={'text-3 flex items-center text-blue-950 shrink-0'}>
               <ClockIcon className={'mr-2 w-4'} />
-              {article.readOnMinutes}
-              min Read
+              {article.readOnMinutes}{' '}
+              {article?.readOnMinutes || 0 > 1 ? 'minutes' : 'minute'}
             </div>
-            <div className={'text-3 flex items-center'}>
-              <TagIcon className={'mr-2 w-4'} />
-              {article?.tags?.map((tag) => tag + '  ')}
+            <div className={'text-3 flex items-center flex-wrap shrink-0'}>
+              <TagIcon className={'mr-2 w-4 text-gray2'} />
+              <div className={'flex items-center gap-x-1 flex-wrap shrink-0'}>
+                {article?.tags?.map((tag, index) => (
+                  <span
+                    key={`tag-${tag}.${index}`}
+                    style={{ backgroundColor: `rgb(${colors[index]}, 60%)` }}
+                    className={cx(
+                      'leading-6 px-3 rounded-3 text-xs rounded-3 text-gray-600'
+                    )}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>

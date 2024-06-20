@@ -1,10 +1,9 @@
 import { MenuIcon, SearchIcon } from '@heroicons/react/outline'
+import Drawer from 'components/Drawer'
+import Links from 'pages/components/Links'
+import Menu from 'pages/components/Menu'
+import Profile from 'pages/components/Profile'
 import { useState } from 'react'
-
-import Drawer from '../../../components/Drawer'
-import Links from '../../components/Links'
-import Menu from '../../components/Menu'
-import Profile from '../../components/Profile'
 
 const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false)
@@ -13,7 +12,7 @@ const Navbar = () => {
     <>
       <div
         className={
-          'w-full h-navbar-height bg-white flex items-center justify-between fixed top-0 z-[1000] shadow-lg px-6'
+          'w-full overflow-x-hidden h-navbar-height bg-white flex items-center justify-between fixed top-0 z-[1000] shadow-lg px-6'
         }
       >
         <MenuIcon
@@ -28,8 +27,8 @@ const Navbar = () => {
         onClose={() => setOpen(false)}
         className={'w-[250px]'}
       >
-        <div className={'pt-5 w-full flex flex-col justify-between flex-1 '}>
-          <div className={'h-full w-full'}>
+        <div className={'pt-5 w-full flex flex-col justify-between flex-1'}>
+          <div className={'h-full w-full space-y-5'}>
             <Profile />
             <Menu />
           </div>
