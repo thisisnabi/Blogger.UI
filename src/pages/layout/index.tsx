@@ -10,7 +10,7 @@ const Layout = ({ children }: LayoutProps) => {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768)
+      setIsMobile(window.innerWidth <= 1024)
     }
 
     checkMobile()
@@ -20,16 +20,10 @@ const Layout = ({ children }: LayoutProps) => {
       window.removeEventListener('resize', checkMobile)
     }
   }, [])
+  console.log(isMobile)
 
-  return (
-    <>
-      {isMobile ? (
-        <MobileLayout>{children}</MobileLayout>
-      ) : (
-        <DesktopLayout>{children}</DesktopLayout>
-      )}
-    </>
-  )
+  if (isMobile) return <MobileLayout>{children}</MobileLayout>
+  else return <DesktopLayout>{children}</DesktopLayout>
 }
 
 export default Layout

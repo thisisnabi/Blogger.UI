@@ -8,7 +8,7 @@ const MobileLayout = React.memo(function MobileLayout({
   children,
 }: LayoutProps) {
   return (
-    <div className={cx('block lg:hidden')}>
+    <div className={cx('max-w-full')}>
       <Navbar />
       <div className={'px-4 py-4'}>{children}</div>
     </div>

@@ -9,7 +9,7 @@ const DesktopLayout = React.memo(function DesktopLayout({
   children,
 }: LayoutProps) {
   return (
-    <div className={'py-8 w-full hidden lg:block'}>
+    <div className={'py-8 w-full'}>
       <div
         className={
           '!h-full mx-auto w-full lg:max-w-[1181px] flex item-start justify-center gap-x-6 soft-scrollbar'

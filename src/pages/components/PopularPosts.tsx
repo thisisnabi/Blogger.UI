@@ -9,7 +9,7 @@ const PopularPosts = () => {
   }
 
   return (
-    <div className={'bg-white rounded-3 p-6 space-y-1'}>
+    <div className={'bg-white rounded-3 py-5 px-4 space-y-1'}>
       <div
         className={
           'text-4 font-meidum text-gray-3 leading-9 flex items-center gap-x-3'
