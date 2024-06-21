@@ -50,7 +50,7 @@ const Archives = () => {
                     >
                       <div
                         className={cx(
-                          'rounded-2 bg-white w-[40px] h-[24px] text-gray1 w-fit text-center content-center text-xs'
+                          'rounded-2 bg-white !shrink-0 w-[40px] h-[24px] text-gray1 text-center content-center text-xs'
                         )}
                       >
                         {article?.day}
