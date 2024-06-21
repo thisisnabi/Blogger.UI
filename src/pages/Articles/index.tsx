@@ -24,7 +24,9 @@ const Articles = () => {
     return API.articles
       .articlesList({ ...filters, Title: search || undefined })
       .then((res) => {
-        setTotalData((prev) => prev.concat(res?.data || []))
+        if (filters.Page == 1 && !res?.data?.length) {
+          setTotalData([])
+        } else setTotalData((prev) => prev.concat(res?.data || []))
         return res.data
       })
       .catch((er) => {
@@ -40,14 +42,14 @@ const Articles = () => {
       handleError={false}
       handleEmptyData={false}
     >
-      {(data) => (
+      {(data, { loading }) => (
         <InfiniteScrollComponent
           hasMore={!(data && data?.length < filters.Size)}
           onMore={() => {
             setFilters((prev) => ({ ...prev, Page: prev.Page + 1 }))
           }}
         >
-          <ArticlesList data={totalData} />
+          <ArticlesList data={totalData} isLoading={loading || false} />
         </InfiniteScrollComponent>
       )}
     </FetchData>
