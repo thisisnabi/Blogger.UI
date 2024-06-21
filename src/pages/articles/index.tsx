@@ -26,7 +26,10 @@ const Articles = () => {
       .then((res) => {
         if (filters.Page == 1 && !res?.data?.length) {
           setTotalData([])
-        } else setTotalData((prev) => prev.concat(res?.data || []))
+        } else {
+          setTotalData([...totalData, ...(res.data || [])])
+        }
+
         return res.data
       })
       .catch((er) => {
@@ -36,8 +39,10 @@ const Articles = () => {
 
   useEffect(() => {
     setFilters({ ...filters, Page: 1 })
+    setTotalData([])
   }, [search])
 
+  console.log(totalData, filters)
   return (
     <FetchData
       request={fetchArticles}
@@ -53,7 +58,7 @@ const Articles = () => {
             setFilters((prev) => ({ ...prev, Page: prev.Page + 1 }))
           }}
         >
-          <ArticlesList data={totalData} isLoading={loading || true} />
+          <ArticlesList data={totalData} isNoData={!loading && !data?.length} />
         </InfiniteScrollComponent>
       )}
     </FetchData>

@@ -7,13 +7,13 @@ import { GetArticlesResponse } from 'services/ApiGlobals'
 
 type ArticlesListProps = {
   data?: GetArticlesResponse[]
-  isLoading: boolean
+  isNoData?: boolean
 }
 
 const ArticlesList = (props: ArticlesListProps) => {
-  const { data, isLoading } = props
+  const { data, isNoData } = props
 
-  if (!data?.length && !isLoading)
+  if (isNoData)
     return (
       <div
         className={
