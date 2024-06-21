@@ -5,7 +5,7 @@
 
 import FetchData from 'components/fetch-data'
 import InfiniteScrollComponent from 'components/infinite-scroll-list'
-import ArticlesList from 'pages/Articles/ArticlesList'
+import ArticlesList from 'pages/articles/ArticlesList'
 import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import API from 'services/Api'

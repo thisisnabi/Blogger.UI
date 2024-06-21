@@ -1,4 +1,4 @@
-import Articles from 'pages/Articles'
+import Articles from 'pages/articles'
 
 const Home = () => {
   return <Articles />

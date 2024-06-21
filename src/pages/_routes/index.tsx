@@ -9,12 +9,14 @@ const PageNotFound = React.lazy(() => import('pages/404'))
 const Tags = React.lazy(() => import('pages/tags'))
 const About = React.lazy(() => import('pages/about'))
 const Subscribe = React.lazy(() => import('pages/subscribe'))
+const Archives = React.lazy(() => import('pages/archives'))
 
 const routes: RouteProps[] = [
   { path: '/', element: <Home /> },
   { path: '/tags', element: <Tags /> },
   { path: '/about', element: <About /> },
   { path: '/subscribe', element: <Subscribe /> },
+  { path: '/archives', element: <Archives /> },
 ]
 
 const AppRoutes = () => {

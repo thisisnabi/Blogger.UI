@@ -29,6 +29,14 @@ module.exports = {
         'caption-gray': '#A8ADB8',
         'primary': '#6F49E8',
       },
+      screens: {
+        // sm: '640px',
+        // md: '768px',
+        lg: '1024px',
+        // xl: '1920px',
+        // xxl: '1930px',
+        // '2xl': '2500px',
+      },
       fontSize: {
         1: '0.25rem',
         1.5: '0.375rem',

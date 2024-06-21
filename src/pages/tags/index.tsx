@@ -1,7 +1,7 @@
 import { TagIcon } from '@heroicons/react/outline'
 import classNames from 'classnames'
 import FetchData from 'components/fetch-data'
-import ArticlesList from 'pages/Articles/ArticlesList'
+import ArticlesList from 'pages/articles/ArticlesList'
 import TagsList from 'pages/tags/TagsList'
 import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
