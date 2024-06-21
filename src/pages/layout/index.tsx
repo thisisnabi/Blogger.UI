@@ -20,7 +20,6 @@ const Layout = ({ children }: LayoutProps) => {
       window.removeEventListener('resize', checkMobile)
     }
   }, [])
-  console.log(isMobile)
 
   if (isMobile) return <MobileLayout>{children}</MobileLayout>
   else return <DesktopLayout>{children}</DesktopLayout>

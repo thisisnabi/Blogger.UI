@@ -574,6 +574,8 @@ export class Api<
          * @default 10
          */
         Size?: number
+        /** @default "" */
+        Title?: string
       },
       params: RequestParams = {}
     ) =>

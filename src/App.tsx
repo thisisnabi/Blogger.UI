@@ -17,7 +17,6 @@ function App() {
       <Toast />
       <BrowserRouter basename={'/'}>
         <ScrollToTop />
-
         <Layout>
           <AppRoutes />
         </Layout>

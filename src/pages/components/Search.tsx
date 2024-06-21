@@ -2,16 +2,18 @@ import { SearchIcon } from '@heroicons/react/outline'
 import cx from 'classnames'
 import React, { HTMLProps } from 'react'
 
-type SearchInputProps = HTMLProps<HTMLDivElement> &
-  React.HTMLAttributes<HTMLDivElement>
+type SearchInputProps = {
+  containerClassName?: string
+} & HTMLProps<HTMLInputElement> &
+  React.HTMLAttributes<HTMLInputElement>
 
 const SearchInput = (props: SearchInputProps) => {
-  const { className, ...rest } = props
+  const { containerClassName, className, ...rest } = props
   return (
     <div
       className={cx(
         'flex items-center bg-white rounded-4 h-[56px] px-5 gap-x-3',
-        className
+        containerClassName
       )}
       {...rest}
     >
@@ -20,8 +22,13 @@ const SearchInput = (props: SearchInputProps) => {
       </span>
       <input
         autoComplete="off"
-        className={'w-full h-full focus:outline-none placeholder:text-[16px]'}
+        className={cx(
+          'w-full h-full focus:outline-none placeholder:text-[16px]',
+          className
+        )}
         placeholder={'search ...'}
+        type={'text'}
+        {...rest}
       />
     </div>
   )

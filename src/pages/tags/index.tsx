@@ -1,7 +1,7 @@
 import { TagIcon } from '@heroicons/react/outline'
 import classNames from 'classnames'
 import FetchData from 'components/fetch-data'
-import ArticlesList from 'pages/Articles/ArticlesList'
+import ArticlesList from 'pages/articles/ArticlesList'
 import TagsList from 'pages/tags/TagsList'
 import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
@@ -50,6 +50,7 @@ const Tags = () => {
           <TagsList
             tags={data || []}
             selected={selectedCategory}
+            key={'tags'}
             onSelect={() => {
               setAnimate('down')
             }}
@@ -58,7 +59,7 @@ const Tags = () => {
       </FetchData>
 
       <FetchData request={fetchArticles} deps={[selectedCategory]}>
-        {(data) => (
+        {(data, { loading }) => (
           <div className={'!h-[800px]'}>
             <div
               className={classNames(
@@ -67,7 +68,7 @@ const Tags = () => {
                 animate == 'down' ? 'animate__fadeOutDown ' : null
               )}
             >
-              <ArticlesList data={data || []} />
+              <ArticlesList data={data || []} isLoading={loading || false} />
             </div>
           </div>
         )}

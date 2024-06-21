@@ -10,7 +10,7 @@ const PopularPosts = () => {
   }
 
   return (
-    <div className={'bg-white rounded-3 py-5 px-4 space-y-1'}>
+    <div className={'bg-white rounded-3 py-5 px-4 space-y-1 shadow-md'}>
       <FetchData request={getPosts} deps={[]} handleLoading={false}>
         {(data, { loading }) => {
           return (
