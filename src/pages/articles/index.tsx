@@ -49,7 +49,7 @@ const Articles = () => {
             setFilters((prev) => ({ ...prev, Page: prev.Page + 1 }))
           }}
         >
-          <ArticlesList data={totalData} isLoading={loading || false} />
+          <ArticlesList data={totalData} isLoading={loading || true} />
         </InfiniteScrollComponent>
       )}
     </FetchData>
