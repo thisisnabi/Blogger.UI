@@ -50,6 +50,7 @@ const Tags = () => {
           <TagsList
             tags={data || []}
             selected={selectedCategory}
+            key={'tags'}
             onSelect={() => {
               setAnimate('down')
             }}
@@ -58,7 +59,7 @@ const Tags = () => {
       </FetchData>
 
       <FetchData request={fetchArticles} deps={[selectedCategory]}>
-        {(data) => (
+        {(data, { loading }) => (
           <div className={'!h-[800px]'}>
             <div
               className={classNames(
@@ -67,7 +68,7 @@ const Tags = () => {
                 animate == 'down' ? 'animate__fadeOutDown ' : null
               )}
             >
-              <ArticlesList data={data || []} />
+              <ArticlesList data={data || []} isLoading={loading || false} />
             </div>
           </div>
         )}

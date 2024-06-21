@@ -27,6 +27,7 @@ const PopularTag = () => {
             <div className={'min-h-[100px] pl-2'}>
               <TagsList
                 tags={data || []}
+                key={'popular-tag'}
                 onSelect={(value) => {
                   navigate({ pathname: '/tags', search: `category=${value}` })
                 }}

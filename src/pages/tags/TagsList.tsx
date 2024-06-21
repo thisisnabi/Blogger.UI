@@ -7,10 +7,11 @@ type Props = {
   selected?: string | null
   onSelect?: (value: string | null | undefined) => void
   tags: GetTagsResponse[]
+  key?: string
 }
 
 const TagsList = (props: Props) => {
-  const { selected, onSelect, tags } = props
+  const { selected, onSelect, tags, key } = props
   const [searchParams, setSearchParams] = useSearchParams()
   const selectedCategory = selected || searchParams.get('category')
 
@@ -18,7 +19,7 @@ const TagsList = (props: Props) => {
     <div className={classNames('flex flex-wrap gap-3')}>
       {tags?.map((tag, index) => (
         <div
-          key={`tag-${index}`}
+          key={`${key}-tag-${index}`}
           className={classNames(
             'bg-white flex items-center shadow-md rounded-4 py-2 px-3 text-[13px] space-x-3 whitespace-nowrap cursor-pointer',
             'transform transition-transform duration-200 ease-in-out hover:scale-110 focus:scale-110 active:scale-105',

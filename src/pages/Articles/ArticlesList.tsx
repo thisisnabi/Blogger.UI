@@ -72,15 +72,22 @@ const ArticlesList = (props: ArticlesListProps) => {
                 <TagIcon className={'mr-2 w-4 text-gray2'} />
                 <div className={'flex items-center gap-x-1 flex-wrap shrink-0'}>
                   {article?.tags?.map((tag, index) => (
-                    <span
+                    <Link
+                      to={{ pathname: '/tags', search: `category=${tag}` }}
                       key={`tag-${tag}.${index}`}
-                      style={{ backgroundColor: `rgb(${colors[index]}, 60%)` }}
-                      className={cx(
-                        'leading-6 px-3 rounded-3 text-xs rounded-3 text-gray-600'
-                      )}
                     >
-                      {tag}
-                    </span>
+                      <div
+                        style={{
+                          backgroundColor: `rgb(${colors[index]}, 60%)`,
+                        }}
+                        className={cx(
+                          'leading-6 px-3 rounded-3 text-xs rounded-3 text-gray-600',
+                          ' transform transition-transform duration-500 ease-in-out hover:scale-125 cursor-pointer hover:font-semibold'
+                        )}
+                      >
+                        {tag}
+                      </div>
+                    </Link>
                   ))}
                 </div>
               </div>
