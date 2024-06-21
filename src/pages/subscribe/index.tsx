@@ -78,7 +78,7 @@ const Subscribe = () => {
         <button
           className={classNames(
             'flex flex-1 shrink-0 items-center justify-center align-middle bg-primary whitespace-nowrap text-white rounded-2 h-[48px] gap-x-2 flex-grow-1',
-            isDisabled ? 'bg-gray1 cursor-not-allowed' : null
+            isDisabled ? '!bg-gray1 !cursor-not-allowed' : null
           )}
           disabled={isDisabled}
           onClick={handleSubmit}

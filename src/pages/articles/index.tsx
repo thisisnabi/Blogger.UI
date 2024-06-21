@@ -42,7 +42,6 @@ const Articles = () => {
     setTotalData([])
   }, [search])
 
-  console.log(totalData, filters)
   return (
     <FetchData
       request={fetchArticles}
