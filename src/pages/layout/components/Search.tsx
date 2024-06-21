@@ -19,6 +19,7 @@ const Search = () => {
       onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(event?.target?.value)
       }}
+      containerClassName={'shadow-md'}
       onKeyPress={(event) => {
         if (event.key === 'Enter') {
           navigate({

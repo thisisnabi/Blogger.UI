@@ -8,7 +8,7 @@ type SearchInputProps = {
   React.HTMLAttributes<HTMLInputElement>
 
 const SearchInput = (props: SearchInputProps) => {
-  const { containerClassName, ...rest } = props
+  const { containerClassName, className, ...rest } = props
   return (
     <div
       className={cx(
@@ -22,7 +22,10 @@ const SearchInput = (props: SearchInputProps) => {
       </span>
       <input
         autoComplete="off"
-        className={'w-full h-full focus:outline-none placeholder:text-[16px]'}
+        className={cx(
+          'w-full h-full focus:outline-none placeholder:text-[16px]',
+          className
+        )}
         placeholder={'search ...'}
         type={'text'}
         {...rest}
