@@ -7,6 +7,7 @@ import FetchData from 'components/fetch-data'
 import InfiniteScrollComponent from 'components/infinite-scroll-list'
 import ArticlesList from 'pages/Articles/ArticlesList'
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import API from 'services/Api'
 import { GetArticlesResponse } from 'services/ApiGlobals'
 
@@ -16,9 +17,12 @@ const Articles = () => {
   const [filters, setFilters] = useState<IFilters>({ Size: 10, Page: 1 })
   const [totalData, setTotalData] = useState<GetArticlesResponse[]>([])
 
+  const [searchParams] = useSearchParams()
+  const search = searchParams.get('search')
+
   const fetchArticles = () => {
     return API.articles
-      .articlesList(filters)
+      .articlesList({ ...filters, Title: search || undefined })
       .then((res) => {
         setTotalData((prev) => prev.concat(res?.data || []))
         return res.data
@@ -31,7 +35,7 @@ const Articles = () => {
   return (
     <FetchData
       request={fetchArticles}
-      deps={[filters]}
+      deps={[filters, search]}
       handleLoading={false}
       handleError={false}
       handleEmptyData={false}

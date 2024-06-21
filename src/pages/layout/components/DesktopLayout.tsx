@@ -1,6 +1,6 @@
+import Search from 'pages/layout/components/Search'
 import React from 'react'
 
-import SearchInput from '../../components/Search'
 import { LayoutProps } from '../index'
 import LeftSidebar from './LeftSidebar'
 import RightSidebar from './RightSidebar'
@@ -16,10 +16,8 @@ const DesktopLayout = React.memo(function DesktopLayout({
         }
       >
         <LeftSidebar />
-
-        {/*inner */}
         <div className={'w-[552px] space-y-2 h-[1200px] space-y-5'}>
-          <SearchInput />
+          <Search />
           <div className={'h-full'}>{children}</div>
         </div>
 
