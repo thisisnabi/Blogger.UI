@@ -1,5 +1,5 @@
 import { CalendarIcon, ClockIcon, TagIcon } from '@heroicons/react/outline'
-import notFound from 'assets/img/not-found.png'
+import notFound from 'assets/img/note-search.png'
 import cx from 'classnames'
 import { parseDate } from 'helpers/helpers'
 import { Link } from 'react-router-dom'
@@ -7,17 +7,21 @@ import { GetArticlesResponse } from 'services/ApiGlobals'
 
 type ArticlesListProps = {
   data?: GetArticlesResponse[]
-  isLoading: boolean
+  isNoData?: boolean
 }
 
 const ArticlesList = (props: ArticlesListProps) => {
-  const { data, isLoading } = props
+  const { data, isNoData } = props
 
-  if (!data?.length && !isLoading)
+  if (isNoData)
     return (
-      <div className={'flex flex-col items-center justify-center'}>
-        <img className={'w-[300px]'} src={notFound} alt={'not-found-gif'} />
-        <h3 className={'text-blue-700'}>Oops! No Data Found!</h3>
+      <div
+        className={
+          'flex flex-col items-center justify-center border border-2 border-dashed rounded-3 h-[240px]'
+        }
+      >
+        <img className={''} src={notFound} alt={'not-found-gif'} />
+        <h2 className={'font-semibold'}>Oops,Search Topic Not Found </h2>
       </div>
     )
   else
