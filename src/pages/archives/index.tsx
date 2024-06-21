@@ -1,3 +1,4 @@
+import SvgNote from 'assets/icons/Note'
 import cx from 'classnames'
 import FetchData from 'components/fetch-data'
 import { getMonthName } from 'helpers/helpers'
@@ -20,10 +21,22 @@ const Archives = () => {
                 {/*----- date info ------*/}
                 <div className={'flex items-center gap-x-2 after:block'}>
                   <Dot />
-                  <h2>
+                  <h2 className={'shrink-0'}>
                     {archive?.year} {getMonthName(archive?.month)}
                   </h2>
+                  <span
+                    className={'w-full h-[1px] border-t-[1px] border-slate-300'}
+                  />
+                  <div
+                    className={
+                      'shrink-0 text-caption-gray text-[12px] flex items-center'
+                    }
+                  >
+                    <SvgNote className={'mx-1 w-4 h-4'} />
+                    {archive?.articles?.length} Post
+                  </div>
                 </div>
+
                 {/*-------------*/}
                 <div
                   className={'space-y-6 py-8 border-l-2 ml-[7px] lg:ml-[10px]'}
