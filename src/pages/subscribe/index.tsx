@@ -15,6 +15,7 @@ const Subscribe = () => {
   const inputRef = useRef<HTMLInputElement>(null)
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [hasError, setHasError] = useState<boolean>(false)
+  const [isDisabled, setIsDisabled] = useState<boolean>(true)
 
   const handleSubmit = async () => {
     if (inputRef.current) {
@@ -30,6 +31,7 @@ const Subscribe = () => {
         .subscribeCreate({ email: inputValue })
         .then(() => {
           if (inputRef.current) inputRef.current.value = ''
+          setIsDisabled(true)
           toast.success("We've sent a verification email to your inbox.")
         })
         .catch((er) => {
@@ -68,12 +70,17 @@ const Subscribe = () => {
             'min-w-[310px] flex-1 h-[48px] rounded-2 bg-gray4 px-4 focus:outline-0 flex-grow-2'
           }
           placeholder={'example@example.com'}
+          onChange={(event) => {
+            // @ts-ignore
+            setIsDisabled(!isValidEmail(event?.target?.value))
+          }}
         />
         <button
           className={classNames(
-            'flex flex-1 shrink-0 items-center justify-center align-middle bg-primary whitespace-nowrap text-white rounded-2 h-[48px] gap-x-2 flex-grow-1'
+            'flex flex-1 shrink-0 items-center justify-center align-middle bg-primary whitespace-nowrap text-white rounded-2 h-[48px] gap-x-2 flex-grow-1',
+            isDisabled ? 'bg-gray1 cursor-not-allowed' : null
           )}
-          disabled={!!inputRef?.current?.value}
+          disabled={isDisabled}
           onClick={handleSubmit}
         >
           {isLoading ? (
