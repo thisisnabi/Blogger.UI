@@ -10,14 +10,6 @@ type ArticlesListProps = {
   isLoading: boolean
 }
 
-const colors = [
-  '230,147,173',
-  '224,183,226',
-  '186,166,206',
-  '219,240,246',
-  '79,192,230',
-]
-
 const ArticlesList = (props: ArticlesListProps) => {
   const { data, isLoading } = props
 
@@ -55,21 +47,19 @@ const ArticlesList = (props: ArticlesListProps) => {
             >
               <div
                 className={
-                  'text-xs flex items-center text-blue-800 font-medium shrink-0'
+                  'text-xs flex items-center text-gray1 font-medium shrink-0'
                 }
               >
                 <CalendarIcon className={'mr-2 w-4'} />
                 {parseDate(article?.publishedOnUtc || '')}
               </div>
-              <div
-                className={'text-3 flex items-center text-blue-950 shrink-0'}
-              >
+              <div className={'text-3 flex items-center shrink-0'}>
                 <ClockIcon className={'mr-2 w-4'} />
                 {article.readOnMinutes}{' '}
-                {article?.readOnMinutes || 0 > 1 ? 'minutes' : 'minute'}
+                {article?.readOnMinutes || 0 > 1 ? 'Minutes' : 'Minute'}
               </div>
               <div className={'text-3 flex items-center flex-wrap shrink-0'}>
-                <TagIcon className={'mr-2 w-4 text-gray2'} />
+                <TagIcon className={'mr-2 w-4 text-gray1'} />
                 <div className={'flex items-center gap-x-1 flex-wrap shrink-0'}>
                   {article?.tags?.map((tag, index) => (
                     <Link
@@ -77,12 +67,8 @@ const ArticlesList = (props: ArticlesListProps) => {
                       key={`tag-${tag}.${index}`}
                     >
                       <div
-                        style={{
-                          backgroundColor: `rgb(${colors[index]}, 60%)`,
-                        }}
                         className={cx(
-                          'leading-6 px-3 rounded-3 text-xs rounded-3 text-gray-600',
-                          ' transform transition-transform duration-500 ease-in-out hover:scale-125 cursor-pointer hover:font-semibold'
+                          'leading-6 px-3 rounded-3 text-xs rounded-3 text-gray-600 bg-white'
                         )}
                       >
                         {tag}
