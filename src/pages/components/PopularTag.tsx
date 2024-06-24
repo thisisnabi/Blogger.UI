@@ -21,7 +21,7 @@ const PopularTag = () => {
           <>
             <div className={'flex items-center gap-x-3'}>
               <TagIcon className={'w-6 text-primary'} />
-              <p className={'text-[18px] font-medium'}>Popular Tag</p>
+              <p className={'text-[18px] font-medium'}>Popular Tags</p>
               {loading && <Spinner />}
             </div>
             <div className={'min-h-[100px] pl-2'}>
