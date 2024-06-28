@@ -1,8 +1,9 @@
-import { MenuIcon, SearchIcon } from '@heroicons/react/outline'
+import { MenuIcon } from '@heroicons/react/outline'
 import Drawer from 'components/Drawer'
 import Links from 'pages/components/Links'
 import Menu from 'pages/components/Menu'
 import Profile from 'pages/components/Profile'
+import MobileSearchInput from 'pages/layout/components/MobileSearchInput'
 import { useState } from 'react'
 
 const Navbar = () => {
@@ -12,7 +13,7 @@ const Navbar = () => {
     <>
       <div
         className={
-          'w-full overflow-x-hidden h-navbar-height bg-white flex items-center justify-between fixed top-0 z-[1000] shadow-lg px-6'
+          'w-full  bg-red-300 overflow-x-hidden h-navbar-height bg-white flex items-center justify-between fixed top-0 z-[1000] shadow-lg px-6'
         }
       >
         <MenuIcon
@@ -20,8 +21,11 @@ const Navbar = () => {
           onClick={() => setOpen(!open)}
         />
         <h5 className={'font-bold'}>Nabi Karampour</h5>
-        <SearchIcon className={'stroke-2 w-6'} />
+        {/*<SearchIcon className={'stroke-2 w-6'} />*/}
+        <MobileSearchInput />
       </div>
+
+      {/*------------------ drawer -----------*/}
       <Drawer
         open={open}
         onClose={() => setOpen(false)}
