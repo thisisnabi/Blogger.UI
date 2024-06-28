@@ -42,10 +42,11 @@ const CommentForm = ({ afterSubmit, replayInfo }: Props) => {
       replayInfo?.name &&
       formData?.content?.includes(`@${replayInfo?.name}`)
     ) {
-      console.log('data', data.content?.split(replayInfo?.name)[1])
-
       return API.comments
-        .commentIdReplyCreate(replayInfo?.id, formData)
+        .commentIdReplyCreate(replayInfo?.id, {
+          ...formData,
+          content: formData?.content?.split(replayInfo?.name)[1],
+        })
         .then(() => {
           toast.success('we receive your replay')
         })
