@@ -1,3 +1,4 @@
+import cx from 'classnames'
 import { MyContext } from 'components/context'
 import Headline from 'pages/articles/detail/components/Headline'
 import Links from 'pages/components/Links'
@@ -10,11 +11,15 @@ const RightSidebar = () => {
   const context = useContext(MyContext)
   const location = useLocation()
 
+  const isDetailOfArticle = matchPath('/articles/:id', location.pathname)
   return (
-    <div className={'w-[264px] overflow-hidden space-y-4 '}>
-      {matchPath('/articles/:id', location.pathname) ? (
-        <Headline headers={context?.headers} />
-      ) : null}
+    <div
+      className={cx(
+        'w-[264px] h-fit overflow-hidden space-y-4',
+        isDetailOfArticle ? ' sticky top-4' : null
+      )}
+    >
+      {isDetailOfArticle ? <Headline headers={context?.headers} /> : null}
       <PopularTag />
       <Links />
       <Rights />
