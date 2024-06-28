@@ -63,6 +63,7 @@ export interface GetArticlesResponse {
 }
 
 export interface GetCommentsResponse {
+  id?: string | null
   fullName?: string | null
   /** @format date-time */
   createdOnUtc?: string

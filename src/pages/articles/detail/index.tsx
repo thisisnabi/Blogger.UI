@@ -5,6 +5,7 @@ import cx from 'classnames'
 import { IHeader, MyContext } from 'components/context'
 import FetchData from 'components/fetch-data'
 import { parseDate } from 'helpers/helpers'
+import Comments from 'pages/articles/detail/components/comments'
 import MdReader from 'pages/articles/detail/components/MdReader'
 import React, { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
@@ -177,7 +178,7 @@ const ArticleDetail = () => {
   return (
     <FetchData request={fetchDetail} deps={[id]}>
       {(data) => (
-        <div className={'space-y-3 pb-6'}>
+        <div className={'space-y-4 pb-6'}>
           <div className={'text-primary text-[40px] font-semibold'}>
             {data?.title}
           </div>
@@ -217,6 +218,7 @@ const ArticleDetail = () => {
             </div>
           </div>
           <MdReader content={value || data?.body || ''} />
+          <Comments />
         </div>
       )}
     </FetchData>
