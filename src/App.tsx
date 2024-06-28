@@ -2,6 +2,7 @@ import 'rc-pagination/assets/index.css'
 import 'animate.css'
 import 'react-toastify/dist/ReactToastify.css'
 
+import Context from 'components/context'
 import ScrollToTop from 'components/scroll-to-top'
 import Toast from 'components/toast'
 import AppRoutes from 'pages/_routes'
@@ -17,9 +18,11 @@ function App() {
       <Toast />
       <BrowserRouter basename={'/'}>
         <ScrollToTop />
-        <Layout>
-          <AppRoutes />
-        </Layout>
+        <Context>
+          <Layout>
+            <AppRoutes />
+          </Layout>
+        </Context>
       </BrowserRouter>
     </ErrorBoundary>
   )

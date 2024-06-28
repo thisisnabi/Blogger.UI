@@ -1,4 +1,4 @@
-import SearchInput from 'pages/components/Search'
+import BaseInput from 'pages/components/BaseInput'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 
@@ -14,7 +14,7 @@ const Search = () => {
   }, [window.location.pathname])
 
   return (
-    <SearchInput
+    <BaseInput
       value={search}
       onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(event?.target?.value)
