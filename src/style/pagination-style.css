@@ -1,0 +1,44 @@
+.rc-pagination-item {
+    border: 1px solid #E4E7EC !important;
+    cursor: pointer;
+    border-radius: 7px !important;
+    transition: background-color 0.3s;
+}
+
+.rc-pagination-item a {
+    color: #717B8E !important;
+
+}
+
+.rc-pagination-item-active {
+    background-color: #6F49E8 !important;
+    color: white !important;
+
+}
+
+
+.rc-pagination-item:not(.rc-pagination-item-active) a:hover {
+    color: #6F49E8 !important; /* Change to your desired color */
+}
+
+.rc-pagination-item-active a {
+    color: white !important;
+}
+
+
+.rc-pagination-prev, .rc-pagination-next {
+    border: 1px solid #E4E7EC !important;
+    color: #6F49E8 !important;
+    cursor: pointer;
+    border-radius: 7px !important;
+    transition: background-color 0.3s;
+}
+
+.rc-pagination-disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+    color: #717B8E !important;
+
+}
+
+

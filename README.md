@@ -1,1 +1,1 @@
-# Blogger.UI
+# Blogger UI for APIs

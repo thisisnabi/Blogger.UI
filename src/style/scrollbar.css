@@ -1,0 +1,17 @@
+
+.soft-scrollbar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.soft-scrollbar::-webkit-scrollbar-track {
+    background: #e5e7eb;
+}
+
+.soft-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #c9c9c9;
+    border-radius: 20px;
+}
+
+
+
+
